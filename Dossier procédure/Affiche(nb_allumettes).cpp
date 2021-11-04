@@ -11,12 +11,8 @@ void Affiche(int nombre_allumettes) {
   nbGroupeCinqAllumettes = (nombre_allumettes - resteDivisionEuclidienne) / 5;
 
   // Afficher le nombre de groupe de cinq allumettes fois la ligne de cinq allumettes
-  for (int i=0; i < nbGroupeCinqAllumettes; i++) {
+  for (int i=0; i < 3; i++) {
     cout<<ligneCinqAllumettes<<endl;
-  }
-  // Cancaténer les points d'exclamation en fonction du reste d'allumettes qui ne se trouve pas dans un groupe de 5
-  for (int i=0; i < resteDivisionEuclidienne; i++) {
-      ligneAllumettes = ligneAllumettes + "! ";
   }
   // Afficher la dernière ligne
   cout<<ligneAllumettes;
