@@ -63,6 +63,22 @@ void Affiche(int nombre_allumettes) {
   cout<<ligneAllumettes;
 }
 
+void jeualterne(string *tour) { 
+  if (tour=="tour_ordi") {
+    nbAllumettesRetire = joueOrdi(niv);
+  }else{
+    naAllumettesRetire = joueJoeur(nom);
+  }
+  miseAjour(nb_allumettes,naAllumettesRetire);
+
+  if (tour == "tour_ordi") {
+    tour = "tour_joueur";
+  } else {
+    tour = "tour_ordi";
+  }
+}
+
+
 int main() {
   // Déclaration des variables
   // Le nombre d'allumettes est un entier
