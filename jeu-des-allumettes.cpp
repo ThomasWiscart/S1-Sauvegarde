@@ -1,4 +1,4 @@
-#include "iostream"
+#include "iostream"o
 #include "stdio.h"
 #include "string.h"
 using namespace std;
@@ -63,7 +63,7 @@ void Affiche(int nombre_allumettes) {
   cout<<ligneAllumettes;
 }
 
-void jeualterne(string *tour) { 
+void jeualterne(string *tour) {
   if (tour=="tour_ordi") {
     nbAllumettesRetire = joueOrdi(niv);
   }else{
