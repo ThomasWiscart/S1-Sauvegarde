@@ -63,6 +63,8 @@ void Affiche(int nombre_allumettes) {
   cout<<ligneAllumettes;
 }
 
+
+
 void jeualterne(string *tour) {
   if (tour=="tour_ordi") {
     nbAllumettesRetire = joueOrdi(niv);
