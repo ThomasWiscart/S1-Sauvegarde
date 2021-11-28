@@ -22,10 +22,10 @@ void saisie(int *nombre_allumettes, char *niveauUtilisateur, string *nomUtilisat
   // Début du contrôle de saisie
   do {
     // Demande à l'utilisateur quel est le nombre d'allumettes qu'il souhaite
-    cout<<"Quel est le nombre d'allumettes que tu souhaites (entre 0 et 30 allumettes)?"<<endl;
+    cout<<"Quel est le nombre d'allumettes que tu souhaites (entre 3 et 30 allumettes)?"<<endl;
     cin>>*nombre_allumettes;
   // Condition qui contrôle la saisie
-  } while (*nombre_allumettes < 0 or *nombre_allumettes > 30);
+  } while (*nombre_allumettes < 3 or *nombre_allumettes > 30);
   // Début du contrôle de saisie
   do {
     // Demande à l'utilisateur quel est le premier joueur entre lui et l'ordinateur
@@ -184,7 +184,7 @@ int main() {
   do {
     jeuAlterne(&tour, niv, &nb_allumettes, nom, &abandon);
     Affiche(nb_allumettes);
-  } while (nb_allumettes != 1);
+  } while (nb_allumettes > 1);
 
   if (tour =="tour_ordi") {
     cout<<"Tu as gagné"<<endl;
