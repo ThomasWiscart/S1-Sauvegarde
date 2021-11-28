@@ -7,20 +7,20 @@ using namespace std;
 void saisie(int *nbAllumettes, char *niveauOrdinateur, string *pseudoUtilisateur, string *premierJoueur) {
   cout<<"Quel est ton pseudo ?"<<endl;
   cin>>*pseudoUtilisateur;
-  cout<<" --> j'enregistre ce que tu as écrit dans la variable pseudoUtilisateur"<<endl;
+  cout<<" --> j'enregistre ce que tu as écrit dans la variable pseudoUtilisateur ♪(๑ᴖ ◡ ᴖ๑)♪"<<endl;
 
   do {
     cout<<"Tu vas jouer contre l'ordinateur. Quel niveau souhaites-tu qu'il ait?"<<endl;
     cout<<"Tapes n ou N si tu souhaites mettre le niveau sur Naif"<<endl;
     cout<<"Tapes e ou E si tu souhaites mettre le niveau sur Expert"<<endl;
     cin>>*niveauOrdinateur;
-    cout<<" --> j'enregistre ce que tu as écrit dans la variable niveauOrdinateur"<<endl;
+    cout<<" --> j'enregistre ce que tu as écrit dans la variable niveauOrdinateur ♪(๑ᴖ ◡ ᴖ๑)♪"<<endl;
   } while (*niveauOrdinateur != 'e' and *niveauOrdinateur != 'E' and *niveauOrdinateur != 'n' and *niveauOrdinateur != 'N');
 
   do {
     cout<<"Quel est le nombre d'allumettes que tu souhaites (entre 3 et 30 allumettes)?"<<endl;
     cin>>*nbAllumettes;
-    cout<<" --> j'enregistre ce que tu as écrit dans la variable nbAllumettes"<<endl;
+    cout<<" --> j'enregistre ce que tu as écrit dans la variable nbAllumettes ♪(๑ᴖ ◡ ᴖ๑)♪"<<endl;
   } while (*nbAllumettes < 3 or *nbAllumettes > 30);
 
   do {
@@ -28,7 +28,7 @@ void saisie(int *nbAllumettes, char *niveauOrdinateur, string *pseudoUtilisateur
     cout<<"Si tu souhaites laisser l'ordinateur jouer en premier, tape Ordinateur"<<endl;
     cout<<"Si tu veux être le premier joueur, écris ton nom : "<<*pseudoUtilisateur<<endl;
     cin>>*premierJoueur;
-    cout<<" --> j'enregistre ce que tu as écrit dans la variable premierJoueur"<<endl;
+    cout<<" --> j'enregistre ce que tu as écrit dans la variable premierJoueur ♪(๑ᴖ ◡ ᴖ๑)♪"<<endl;
   } while (*premierJoueur != "Ordinateur" and *premierJoueur != *pseudoUtilisateur);
 }
 
@@ -53,20 +53,27 @@ void Affiche(int nbAllumettes) {
 int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
   int nbAllumettesChoixOrdi;
   cout<<"L'ordinateur est actuellement en train de jouer..."<<endl;
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Tu ne le sais pas, mais, je suis en train de regarder si niveauOrdinateur est celui d'un expert ou d'un naif pour adapter son jeu."<<endl;
   if (niveauOrdinateur == 'n' or niveauOrdinateur == 'N') {
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Ce robot m'a tout l'air d'être naif. Il va donc choisir un nombre d'allumettes aléatoirement entre 1 et 3[comme toi, finalement, haha ;) ]."<<endl;
     if (nbAllumettes > 3) {
       nbAllumettesChoixOrdi = rand() % 3 + 1;
     } else {
       if (nbAllumettes > 2) {
+        cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Le nombre d'allumettes étant inférieur à 3, j'ai pris des précautions. L'ordinateur a été réglé pour qu'il choississe un nombre aléatoire entre 1 et 3."<<endl;
         nbAllumettesChoixOrdi = rand() % 2 + 1;
       } else {
+        cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Le nombre d'allumettes étant inférieur, j'ai pris des précautions. L'ordinateur a été réglé pour qu'il choississe un nombre aléatoire entre 1 et 2."<<endl;
         nbAllumettesChoixOrdi = rand() % 1 + 1;
       }
     }
   } else {
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Cet ordinateur, il m'a tout l'air d'être un expert. Tu pourras jamais gagner contre lui [sauf si tu le débranches, notre plus grande faille :( ]"<<endl;
     if ((nbAllumettes % 4) - 1 != -1) {
+      cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Il choisit le nombre d'allumettes qu'il faut supprimer pour obtenir un multiple de 5 + 1 (je sais, c'est tordu, mais, j'y suis pour rien moi, je ne fais que suivre les règles, enfin)."<<endl;
       nbAllumettesChoixOrdi = (nbAllumettes % 4) - 1;
     } else {
+      cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Un bug fait que l'ordinateur est naif (au début) puis expert (ensuite) (sinon, l'ordi remettait une allumette sur le plateau, tu sais, les jeunes robots, ce n'est plus ce que c'était de mon temps, ma carte mère me disait...)";
       nbAllumettesChoixOrdi = rand() % 3 + 1;
     }
   }
@@ -122,12 +129,19 @@ void tourSuivant(string *tourActuel) {
 
 void jeuAlterne(string *tourActuel, char niveauOrdinateur, int *nbAllumettes, string pseudoUtilisateur, bool *abandon) {
   int allumettesRetirees = 0;
+  cout<<"Je vais regarder la valeur de tourActuel pour savoir qui est en train de jouer."<<endl;
   if (*tourActuel == "tour_ordi") {
+    cout<<"Je sais que c'est à l'ordinateur de jouer. Je lance donc la fonction joueOrdi()."<<endl;
     allumettesRetirees = joueOrdi(niveauOrdinateur, *nbAllumettes);
+    cout<<"La fonction retourne le nombre d'allumettes choisis par l'ordinateur que je dois enlever du plateau de jeu. Hop, hop, je me dépèche !";
   } else {
+    cout<<"Je sais que c'est à ton tour de jouer, je lance donc la fonction joueJoeur()."<<endl;
     allumettesRetirees = joueJoueur(pseudoUtilisateur, *nbAllumettes, abandon);
+    cout<<"La fonction retourne le nombre d'allumettes choisis par l'ordinateur que je dois enlever du plateau de jeu. Hop, hop, je me dépèche !";
   }
+  cout<<"Mais, comment faire pour enlever les allumettes sur le plateau de jeu? Je vais utiliser la fonction miseAjour qui va enlever le nombre d'allumettes choisis précédemment."<<endl;
   miseAjour(nbAllumettes, allumettesRetirees);
+
   tourSuivant(tourActuel);
 }
 
@@ -152,23 +166,24 @@ void resultatPartie(string tourActuel, bool abandon) {
 }
 
 int main() {
-  cout<<"Bonjour, je m'appelle Olympe. Je suis le bot développé par Thomas pour expliquer le programme jeu-des-allumettes."<<endl;
-  cout<<"Premièrement, j'initialise les variables : nbAllumettes, niveauOrdinateur, pseudoUtilisateur, premierJoueur, tourActuel et abandon."<<endl;
-  cout<<"Ce sont des variables qui seront utilisés toute au long du programme."<<endl;
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Bonjour, je m'appelle Olympe. Je suis le bot développé par Thomas pour expliquer le programme jeu-des-allumettes."<<endl;
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Premièrement, j'initialise les variables : nbAllumettes, niveauOrdinateur, pseudoUtilisateur, premierJoueur, tourActuel et abandon."<<endl;
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Ce sont des variables qui seront utilisés toute au long du programme."<<endl;
   int nbAllumettes;
   char niveauOrdinateur;
   string pseudoUtilisateur, premierJoueur, tourActuel;
   bool abandon = false;
 
-  cout<<"Je fais appel à la procédure Saisie pour demander les informations à l'utilisateur."<<endl;
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je fais appel à la procédure Saisie pour demander les informations à l'utilisateur."<<endl;
   saisie(&nbAllumettes, &niveauOrdinateur, &pseudoUtilisateur, &premierJoueur);
-  cout<<"Je fais appel à la procédure initialisationTour pour savoir qui commence."<<endl;
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je fais appel à la procédure initialisationTour pour savoir qui commence."<<endl;
   initialisationTour(premierJoueur, &tourActuel);
-  cout<<"Je fais appel à la procédure Affiche pour savoir qui commence."<<endl;
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je fais appel à la procédure Affiche pour savoir qui commence."<<endl;
   Affiche(nbAllumettes);
 
-  cout<<"Je rentre actuellement dans une boucle qui fonctionnera tant que l'utilisateur n'aura pas abandonné la partie ou que le nombre d'allumettes égal de 1."
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je rentre actuellement dans une boucle qui fonctionnera tant que l'utilisateur n'aura pas abandonné la partie ou que le nombre d'allumettes égal de 1."<<endl;
   do {
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je lance la fonction jeuAlterne qui permet à l'ordinateur de jouer chacun leur tour."<<endl;
     jeuAlterne(&tourActuel, niveauOrdinateur, &nbAllumettes, pseudoUtilisateur, &abandon);
     Affiche(nbAllumettes);
   } while (nbAllumettes > 1 and abandon != true);
