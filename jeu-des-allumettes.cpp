@@ -22,10 +22,10 @@ void saisie(int *nombre_allumettes, char *niveauUtilisateur, string *nomUtilisat
   // Début du contrôle de saisie
   do {
     // Demande à l'utilisateur quel est le nombre d'allumettes qu'il souhaite
-    cout<<"Quel est le nombre d'allumettes que tu souhaites (entre 0 et 30 allumettes)?"<<endl;
+    cout<<"Quel est le nombre d'allumettes que tu souhaites (entre 3 et 30 allumettes)?"<<endl;
     cin>>*nombre_allumettes;
   // Condition qui contrôle la saisie
-  } while (*nombre_allumettes < 0 or *nombre_allumettes > 30);
+  } while (*nombre_allumettes < 3 or *nombre_allumettes > 30);
   // Début du contrôle de saisie
   do {
     // Demande à l'utilisateur quel est le premier joueur entre lui et l'ordinateur
@@ -57,65 +57,77 @@ void Affiche(int nombre_allumettes) {
   for (int i=0; i < resteDivisionEuclidienne; i++) {
       ligneAllumettes = ligneAllumettes + "! ";
   }
+
   // Afficher la dernière ligne
-  cout<<ligneAllumettes;
+  cout<<ligneAllumettes<<endl;
 }
 
-int joueOrdi(string niveauOrdi, int nbAllumettes) {
+int joueOrdi(char niveauOrdi, int nbAllumettes) {
   int nbAllumettesChoixOrdi;
   cout<<"L'ordinateur est actuellement en train de jouer..."<<endl;
-  if (niveauOrdi == "n" or niveauOrdi == "N") {
+  if (niveauOrdi == 'n' or niveauOrdi == 'N') {
     nbAllumettesChoixOrdi = rand() % 3 + 1;
   } else {
-    nbAllumettesChoixOrdi = (nbAllumettes % 4) + 1;
+    nbAllumettesChoixOrdi = (nbAllumettes % 4) - 1;
   }
+  cout<<"Le choix de l'ordinateur est : "<<nbAllumettesChoixOrdi<<endl;
+  return nbAllumettesChoixOrdi;
 }
 
-void verificationSaisie(int ChoixAllumettesUtilisateur, int nbAllumettes) {
+void verificationSaisie(int ChoixAllumettesUtilisateur, int nbAllumettes, bool *abandon) {
   if (ChoixAllumettesUtilisateur < 0) {
     cout<<"Le nombre d'allumettes est inférieur à zéro. Or, il est impossible de choisir un nombre d'allumettes étant inférieur à zéro."<<endl<<"Je repose donc la question suivante :"<<endl;
   }
+
   if (ChoixAllumettesUtilisateur > 3) {
     cout<<"Le nombres d'allumettes choisis est supérieur à 3. Or, dans les règles de ce jeu, il est dit que l'on ne peut prendre un nombre d'allumettes supérieurs à 3."<<endl<<"Je repose donc la question suivante :"<<endl;
   }
+
   if (ChoixAllumettesUtilisateur > nbAllumettes) {
     cout<<"Le nombres d'allumettes choisis est supérieur au nombre d'allumettes disponibles sur le plateau de jeu."<<endl<<"Je repose donc la question suivante :"<<endl;
   }
-  if (nbAllumettes == 0) {
+
+  if (ChoixAllumettesUtilisateur == nbAllumettes) {
+    cout<<"Le nombres d'allumettes choisis est égale au nombre d'allumettes disponibles sur le plateau de jeu."<<endl<<"Je repose donc la question suivante :"<<endl;
+  }
+
+  if (ChoixAllumettesUtilisateur == 0) {
     cout<<"Tu as abandonné la partie."<<endl;
+    *abandon = true;
   }
 }
 
-int joueJoueur(string nomUtilisateur, int nbAllumettes) {
+int joueJoueur(string nomUtilisateur, int nbAllumettes, bool *abandon) {
   int ChoixAllumettesUtilisateur;
   cout<<"C'est à toi de jouer, "<<nomUtilisateur<<" !"<<endl;
   do {
-    cout<<"Combien d'allumettes souhaites-tu retirer ?";
+    cout<<"Combien d'allumettes souhaites-tu retirer ?"<<endl;
     cin>>ChoixAllumettesUtilisateur;
-    verificationSaisie(nbAllumettes, ChoixAllumettesUtilisateur);
-  } while (ChoixAllumettesUtilisateur < 0 or ChoixAllumettesUtilisateur > 3 or ChoixAllumettesUtilisateur > nbAllumettes or nbAllumettes != 0);
+    verificationSaisie(ChoixAllumettesUtilisateur, nbAllumettes, abandon);
+  } while (ChoixAllumettesUtilisateur < 0 or ChoixAllumettesUtilisateur > 3 or ChoixAllumettesUtilisateur >= nbAllumettes);
+  return ChoixAllumettesUtilisateur;
 }
 
-void miseAjour(int *nbAllumettes, int allumettesRetirées) {
-  *nbAllumettes = *nbAllumettes - allumettesRetirées;
+void miseAjour(int *nbAllumettes, int allumettesRetirees) {
+  *nbAllumettes = *nbAllumettes - allumettesRetirees;
 }
 
 void tourSuivant(string *tour_actuel) {
   if (*tour_actuel == "tour_ordi") {
     *tour_actuel = "tour_joueur";
   } else {
-    *tour_actuel = "tour_joueur";
+    *tour_actuel = "tour_ordi";
   }
 }
 
-void jeuAlterne(string *tour_actuel, string niveau, int nbAllumettes, string nomUtilisateur) {
-  int allumettesRetirées = 0;
+void jeuAlterne(string *tour_actuel, char niveau, int *nbAllumettes, string nom, bool *abandon) {
+  int allumettesRetirees = 0;
   if (*tour_actuel == "tour_ordi") {
-    allumettesRetirées = joueOrdi(niveau, nbAllumettes);
+    allumettesRetirees = joueOrdi(niveau, *nbAllumettes);
   } else {
-    allumettesRetirées = joueJoueur(nomUtilisateur, nbAllumettes);
+    allumettesRetirees = joueJoueur(nom, *nbAllumettes, abandon);
   }
-  miseAjour(&nbAllumettes, allumettesRetirées);
+  miseAjour(nbAllumettes, allumettesRetirees);
   tourSuivant(tour_actuel);
 }
 
@@ -135,12 +147,26 @@ int main() {
   char niv;
   // Le nom et le premier joueur sont des chaines de caractères
   string nom, prem, tour;
+  bool abandon = false;
 
   // Appel de la procédure Saisie (procédure à faire dans la sous-tâche 1)
   saisie(&nb_allumettes, &niv, &nom, &prem);
   initialisationTour(prem, &tour);
-
   Affiche(nb_allumettes);
 
+  do {
+    jeuAlterne(&tour, niv, &nb_allumettes, nom, &abandon);
+    Affiche(nb_allumettes);
+  } while (nb_allumettes > 1);
+
+  if (tour =="tour_ordi") {
+    cout<<"Tu as gagné"<<endl;
+  } else {
+    if (tour == "tour_joueur") {
+      cout<<"Tu as perdu"<<endl;
+    } else {
+      cout<<"Tu as abandonné"<<endl;
+    }
+  }
   return 0;
 }
