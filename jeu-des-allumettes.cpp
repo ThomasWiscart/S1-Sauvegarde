@@ -6,7 +6,7 @@ using namespace std;
 
 // Définition de la procédure saisie (procédure à faire dans la sous-tâche 1)
 void saisie(int *nombre_allumettes, char *niveauUtilisateur, string *nomUtilisateur, string *premierJoueur) {
-  cout<<"Quel est ton nom de joueur?"<<endl;
+  cout<<"Quel est ton pseudo ?"<<endl;
   cin>>*nomUtilisateur;
 
   // Début du contrôle de saisie
@@ -30,8 +30,8 @@ void saisie(int *nombre_allumettes, char *niveauUtilisateur, string *nomUtilisat
   do {
     // Demande à l'utilisateur quel est le premier joueur entre lui et l'ordinateur
     cout<<"Choississez le premier joueur :"<<endl;
-    cout<<"Si vous voulez laisser l'ordinateur jouer en premier, tapez Ordinateur"<<endl;
-    cout<<"Si vous voulez être le premier joueur, écrivez votre nom : "<<*nomUtilisateur<<endl;
+    cout<<"Si tu souhaites laisser l'ordinateur jouer en premier, tape Ordinateur"<<endl;
+    cout<<"Si tu veux être le premier joueur, écris ton nom : "<<*nomUtilisateur<<endl;
     cin>>*premierJoueur;
     // Condition qui contrôle la saisie
   } while (*premierJoueur != "Ordinateur" and *premierJoueur != *nomUtilisateur);
@@ -69,26 +69,26 @@ int joueOrdi(char niveauOrdi, int nbAllumettes) {
     nbAllumettesChoixOrdi = rand() % 3 + 1;
   } else {
     nbAllumettesChoixOrdi = (nbAllumettes % 4) - 1;
+    cout<<"Le nombre d'allumettes choisis par l'ordinateur est : "<<nbAllumettesChoixOrdi<<endl;
   }
-  cout<<"Le choix de l'ordinateur est : "<<nbAllumettesChoixOrdi<<endl;
   return nbAllumettesChoixOrdi;
 }
 
 void verificationSaisie(int ChoixAllumettesUtilisateur, int nbAllumettes, bool *abandon) {
   if (ChoixAllumettesUtilisateur < 0) {
-    cout<<"Le nombre d'allumettes est inférieur à zéro. Or, il est impossible de choisir un nombre d'allumettes étant inférieur à zéro."<<endl<<"Je repose donc la question suivante :"<<endl;
+    cout<<"Le nombre d'allumettes choisies est inférieur à zéro. Or, il est impossible de choisir un nombre d'allumettes étant inférieur à zéro."<<endl<<"Je repose donc la question suivante :"<<endl;
   }
 
   if (ChoixAllumettesUtilisateur > 3) {
-    cout<<"Le nombres d'allumettes choisis est supérieur à 3. Or, dans les règles de ce jeu, il est dit que l'on ne peut prendre un nombre d'allumettes supérieurs à 3."<<endl<<"Je repose donc la question suivante :"<<endl;
+    cout<<"Le nombres d'allumettes choisies est supérieur à 3. Or, dans les règles de ce jeu, il est dit que l'on ne peut prendre un nombre d'allumettes supérieurs à 3."<<endl<<"Je repose donc la question suivante :"<<endl;
   }
 
   if (ChoixAllumettesUtilisateur > nbAllumettes) {
-    cout<<"Le nombres d'allumettes choisis est supérieur au nombre d'allumettes disponibles sur le plateau de jeu."<<endl<<"Je repose donc la question suivante :"<<endl;
+    cout<<"Le nombres d'allumettes choisies est supérieur au nombre d'allumettes disponibles sur le plateau de jeu."<<endl<<"Je repose donc la question suivante :"<<endl;
   }
 
   if (ChoixAllumettesUtilisateur == nbAllumettes) {
-    cout<<"Le nombres d'allumettes choisis est égale au nombre d'allumettes disponibles sur le plateau de jeu."<<endl<<"Je repose donc la question suivante :"<<endl;
+    cout<<"Le nombres d'allumettes choisies est égale au nombre d'allumettes disponibles sur le plateau de jeu."<<endl<<"Je repose donc la question suivante :"<<endl;
   }
 
   if (ChoixAllumettesUtilisateur == 0) {
@@ -101,7 +101,7 @@ int joueJoueur(string nomUtilisateur, int nbAllumettes, bool *abandon) {
   int ChoixAllumettesUtilisateur;
   cout<<"C'est à toi de jouer, "<<nomUtilisateur<<" !"<<endl;
   do {
-    cout<<"Combien d'allumettes souhaites-tu retirer ?"<<endl;
+    cout<<"Combien d'allumettes souhaites-tu retirer (entre 1 et 3 allumettes) {si tu choisis 0, tu abandonneras la partie} ?"<<endl;
     cin>>ChoixAllumettesUtilisateur;
     verificationSaisie(ChoixAllumettesUtilisateur, nbAllumettes, abandon);
   } while (ChoixAllumettesUtilisateur < 0 or ChoixAllumettesUtilisateur > 3 or ChoixAllumettesUtilisateur >= nbAllumettes);
@@ -160,12 +160,12 @@ int main() {
   } while (nb_allumettes > 1);
 
   if (tour =="tour_ordi") {
-    cout<<"Tu as gagné"<<endl;
+    cout<<"Tu as gagné."<<endl;
   } else {
     if (tour == "tour_joueur") {
-      cout<<"Tu as perdu"<<endl;
+      cout<<"Tu as perdu."<<endl;
     } else {
-      cout<<"Tu as abandonné"<<endl;
+      cout<<"Tu as abandonné."<<endl;
     }
   }
   return 0;
