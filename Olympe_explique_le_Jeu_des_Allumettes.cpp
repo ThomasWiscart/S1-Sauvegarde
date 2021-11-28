@@ -33,12 +33,15 @@ void saisie(int *nbAllumettes, char *niveauOrdinateur, string *pseudoUtilisateur
 }
 
 void Affiche(int nbAllumettes) {
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - J'initialise des variables qui permettront d'afficher les lignes une à une."<<endl;
   int nbGroupeCinqAllumettes, resteDivisionEuclidienne;
   string ligneAllumettes, ligneCinqAllumettes = "! ! ! ! !";
 
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je calcule le reste de la division euclidienne par 5 (je sais, je suis en train de te perdre) pour obtenir le nombre de groupe de 5 allumettes"<<endl;
   resteDivisionEuclidienne = nbAllumettes % 5;
   nbGroupeCinqAllumettes = (nbAllumettes - resteDivisionEuclidienne) / 5;
 
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Vu que j'ai les deux variables, je peux afficher les allumettes par groupe de 5 et le reste."<<endl;
   for (int i=0; i < nbGroupeCinqAllumettes; i++) {
     cout<<ligneCinqAllumettes<<endl;
   }
@@ -46,7 +49,6 @@ void Affiche(int nbAllumettes) {
   for (int i=0; i < resteDivisionEuclidienne; i++) {
       ligneAllumettes = ligneAllumettes + "! ";
   }
-
   cout<<ligneAllumettes<<endl;
 }
 
