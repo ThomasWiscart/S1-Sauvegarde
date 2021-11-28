@@ -7,17 +7,20 @@ using namespace std;
 void saisie(int *nbAllumettes, char *niveauOrdinateur, string *pseudoUtilisateur, string *premierJoueur) {
   cout<<"Quel est ton pseudo ?"<<endl;
   cin>>*pseudoUtilisateur;
+  cout<<" --> j'enregistre ce que tu as écrit dans la variable pseudoUtilisateur"<<endl;
 
   do {
     cout<<"Tu vas jouer contre l'ordinateur. Quel niveau souhaites-tu qu'il ait?"<<endl;
     cout<<"Tapes n ou N si tu souhaites mettre le niveau sur Naif"<<endl;
     cout<<"Tapes e ou E si tu souhaites mettre le niveau sur Expert"<<endl;
     cin>>*niveauOrdinateur;
+    cout<<" --> j'enregistre ce que tu as écrit dans la variable niveauOrdinateur"<<endl;
   } while (*niveauOrdinateur != 'e' and *niveauOrdinateur != 'E' and *niveauOrdinateur != 'n' and *niveauOrdinateur != 'N');
 
   do {
     cout<<"Quel est le nombre d'allumettes que tu souhaites (entre 3 et 30 allumettes)?"<<endl;
     cin>>*nbAllumettes;
+    cout<<" --> j'enregistre ce que tu as écrit dans la variable nbAllumettes"<<endl;
   } while (*nbAllumettes < 3 or *nbAllumettes > 30);
 
   do {
@@ -25,6 +28,7 @@ void saisie(int *nbAllumettes, char *niveauOrdinateur, string *pseudoUtilisateur
     cout<<"Si tu souhaites laisser l'ordinateur jouer en premier, tape Ordinateur"<<endl;
     cout<<"Si tu veux être le premier joueur, écris ton nom : "<<*pseudoUtilisateur<<endl;
     cin>>*premierJoueur;
+    cout<<" --> j'enregistre ce que tu as écrit dans la variable premierJoueur"<<endl;
   } while (*premierJoueur != "Ordinateur" and *premierJoueur != *pseudoUtilisateur);
 }
 
@@ -50,7 +54,15 @@ int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
   int nbAllumettesChoixOrdi;
   cout<<"L'ordinateur est actuellement en train de jouer..."<<endl;
   if (niveauOrdinateur == 'n' or niveauOrdinateur == 'N') {
-    nbAllumettesChoixOrdi = rand() % 3 + 1;
+    if (nbAllumettes > 3) {
+      nbAllumettesChoixOrdi = rand() % 3 + 1;
+    } else {
+      if (nbAllumettes > 2) {
+        nbAllumettesChoixOrdi = rand() % 2 + 1;
+      } else {
+        nbAllumettesChoixOrdi = rand() % 1 + 1;
+      }
+    }
   } else {
     if ((nbAllumettes % 4) - 1 != -1) {
       nbAllumettesChoixOrdi = (nbAllumettes % 4) - 1;
@@ -140,15 +152,22 @@ void resultatPartie(string tourActuel, bool abandon) {
 }
 
 int main() {
+  cout<<"Bonjour, je m'appelle Olympe. Je suis le bot développé par Thomas pour expliquer le programme jeu-des-allumettes."<<endl;
+  cout<<"Premièrement, j'initialise les variables : nbAllumettes, niveauOrdinateur, pseudoUtilisateur, premierJoueur, tourActuel et abandon."<<endl;
+  cout<<"Ce sont des variables qui seront utilisés toute au long du programme."<<endl;
   int nbAllumettes;
   char niveauOrdinateur;
   string pseudoUtilisateur, premierJoueur, tourActuel;
   bool abandon = false;
 
+  cout<<"Je fais appel à la procédure Saisie pour demander les informations à l'utilisateur."<<endl;
   saisie(&nbAllumettes, &niveauOrdinateur, &pseudoUtilisateur, &premierJoueur);
+  cout<<"Je fais appel à la procédure initialisationTour pour savoir qui commence."<<endl;
   initialisationTour(premierJoueur, &tourActuel);
+  cout<<"Je fais appel à la procédure Affiche pour savoir qui commence."<<endl;
   Affiche(nbAllumettes);
 
+  cout<<"Je rentre actuellement dans une boucle qui fonctionnera tant que l'utilisateur n'aura pas abandonné la partie ou que le nombre d'allumettes égal de 1."
   do {
     jeuAlterne(&tourActuel, niveauOrdinateur, &nbAllumettes, pseudoUtilisateur, &abandon);
     Affiche(nbAllumettes);

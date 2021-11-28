@@ -66,7 +66,15 @@ int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
   int nbAllumettesChoixOrdi;
   cout<<"L'ordinateur est actuellement en train de jouer..."<<endl;
   if (niveauOrdinateur == 'n' or niveauOrdinateur == 'N') {
-    nbAllumettesChoixOrdi = rand() % 3 + 1;
+    if (nbAllumettes > 3) {
+      nbAllumettesChoixOrdi = rand() % 3 + 1;
+    } else {
+      if (nbAllumettes > 2) {
+        nbAllumettesChoixOrdi = rand() % 2 + 1;
+      } else {
+        nbAllumettesChoixOrdi = rand() % 1 + 1;
+      }
+    }
   } else {
     if ((nbAllumettes % 4) - 1 != -1) {
       nbAllumettesChoixOrdi = (nbAllumettes % 4) - 1;
