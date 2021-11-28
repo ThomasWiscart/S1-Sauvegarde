@@ -5,9 +5,9 @@
 using namespace std;
 
 // Définition de la procédure saisie (procédure à faire dans la sous-tâche 1)
-void saisie(int *nbAllumettes, char *niveauOrdinateur, string *nomUtilisateur, string *premierJoueur) {
+void saisie(int *nbAllumettes, char *niveauOrdinateur, string *pseudoUtilisateur, string *premierJoueur) {
   cout<<"Quel est ton pseudo ?"<<endl;
-  cin>>*nomUtilisateur;
+  cin>>*pseudoUtilisateur;
 
   // Début du contrôle de saisie
   do {
@@ -31,10 +31,10 @@ void saisie(int *nbAllumettes, char *niveauOrdinateur, string *nomUtilisateur, s
     // Demande à l'utilisateur quel est le premier joueur entre lui et l'ordinateur
     cout<<"Choississez le premier joueur :"<<endl;
     cout<<"Si tu souhaites laisser l'ordinateur jouer en premier, tape Ordinateur"<<endl;
-    cout<<"Si tu veux être le premier joueur, écris ton nom : "<<*nomUtilisateur<<endl;
+    cout<<"Si tu veux être le premier joueur, écris ton nom : "<<*pseudoUtilisateur<<endl;
     cin>>*premierJoueur;
     // Condition qui contrôle la saisie
-  } while (*premierJoueur != "Ordinateur" and *premierJoueur != *nomUtilisateur);
+  } while (*premierJoueur != "Ordinateur" and *premierJoueur != *pseudoUtilisateur);
 }
 
 void Affiche(int nbAllumettes) {
@@ -62,10 +62,10 @@ void Affiche(int nbAllumettes) {
   cout<<ligneAllumettes<<endl;
 }
 
-int joueOrdi(char niveauOrdi, int nbAllumettes) {
+int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
   int nbAllumettesChoixOrdi;
   cout<<"L'ordinateur est actuellement en train de jouer..."<<endl;
-  if (niveauOrdi == 'n' or niveauOrdi == 'N') {
+  if (niveauOrdinateur == 'n' or niveauOrdinateur == 'N') {
     nbAllumettesChoixOrdi = rand() % 3 + 1;
   } else {
     nbAllumettesChoixOrdi = (nbAllumettes % 4) - 1;
@@ -97,9 +97,9 @@ void verificationSaisie(int ChoixAllumettesUtilisateur, int nbAllumettes, bool *
   }
 }
 
-int joueJoueur(string nomUtilisateur, int nbAllumettes, bool *abandon) {
+int joueJoueur(string pseudoUtilisateur, int nbAllumettes, bool *abandon) {
   int ChoixAllumettesUtilisateur;
-  cout<<"C'est à toi de jouer, "<<nomUtilisateur<<" !"<<endl;
+  cout<<"C'est à toi de jouer, "<<pseudoUtilisateur<<" !"<<endl;
   do {
     cout<<"Combien d'allumettes souhaites-tu retirer (entre 1 et 3 allumettes) {si tu choisis 0 (et tout les autres caractères non-numériques), tu abandonneras la partie} ?"<<endl;
     cin>>ChoixAllumettesUtilisateur;
@@ -112,30 +112,30 @@ void miseAjour(int *nbAllumettes, int allumettesRetirees) {
   *nbAllumettes = *nbAllumettes - allumettesRetirees;
 }
 
-void tourSuivant(string *tour_actuel) {
-  if (*tour_actuel == "tour_ordi") {
-    *tour_actuel = "tour_joueur";
+void tourSuivant(string *tourActuel) {
+  if (*tourActuel == "tour_ordi") {
+    *tourActuel = "tour_joueur";
   } else {
-    *tour_actuel = "tour_ordi";
+    *tourActuel = "tour_ordi";
   }
 }
 
-void jeuAlterne(string *tour_actuel, char niveau, int *nbAllumettes, string nom, bool *abandon) {
+void jeuAlterne(string *tourActuel, char niveauOrdinateur, int *nbAllumettes, string pseudoUtilisateur, bool *abandon) {
   int allumettesRetirees = 0;
-  if (*tour_actuel == "tour_ordi") {
-    allumettesRetirees = joueOrdi(niveau, *nbAllumettes);
+  if (*tourActuel == "tour_ordi") {
+    allumettesRetirees = joueOrdi(niveauOrdinateur, *nbAllumettes);
   } else {
-    allumettesRetirees = joueJoueur(nom, *nbAllumettes, abandon);
+    allumettesRetirees = joueJoueur(pseudoUtilisateur, *nbAllumettes, abandon);
   }
   miseAjour(nbAllumettes, allumettesRetirees);
-  tourSuivant(tour_actuel);
+  tourSuivant(tourActuel);
 }
 
-void initialisationTour(string premierJoueur, string *tour_actuel) {
+void initialisationTour(string premierJoueur, string *tourActuel) {
   if (premierJoueur == "Ordinateur") {
-    *tour_actuel = "tour_ordi";
+    *tourActuel = "tour_ordi";
   } else {
-    *tour_actuel = "tour_joueur";
+    *tourActuel = "tour_joueur";
   }
 }
 
@@ -144,25 +144,25 @@ int main() {
   // Le nombre d'allumettes est un entier
   int nbAllumettes;
   // Le niveau est donné à l'aide uniquement d'un caractère
-  char niv;
+  char niveauOrdinateur;
   // Le nom et le premier joueur sont des chaines de caractères
-  string nom, prem, tour;
+  string pseudoUtilisateur, premierJoueur, tourActuel;
   bool abandon = false;
 
   // Appel de la procédure Saisie (procédure à faire dans la sous-tâche 1)
-  saisie(&nbAllumettes, &niv, &nom, &prem);
-  initialisationTour(prem, &tour);
+  saisie(&nbAllumettes, &niveauOrdinateur, &pseudoUtilisateur, &premierJoueur);
+  initialisationTour(premierJoueur, &tourActuel);
   Affiche(nbAllumettes);
 
   do {
-    jeuAlterne(&tour, niv, &nbAllumettes, nom, &abandon);
+    jeuAlterne(&tourActuel, niveauOrdinateur, &nbAllumettes, pseudoUtilisateur, &abandon);
     Affiche(nbAllumettes);
   } while (nbAllumettes > 1 and abandon != true);
 
   if (abandon == true) {
     cout<<"Tu as abandonné."<<endl;
   } else {
-    if (tour == "tour_joueur") {
+    if (tourActuel == "tour_joueur") {
       cout<<"Tu as perdu."<<endl;
     } else {
       cout<<"Tu as gagné."<<endl;
