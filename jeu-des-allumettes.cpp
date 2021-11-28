@@ -5,7 +5,7 @@
 using namespace std;
 
 // Définition de la procédure saisie (procédure à faire dans la sous-tâche 1)
-void saisie(int *nombre_allumettes, char *niveauUtilisateur, string *nomUtilisateur, string *premierJoueur) {
+void saisie(int *nbAllumettes, char *niveauOrdinateur, string *nomUtilisateur, string *premierJoueur) {
   cout<<"Quel est ton pseudo ?"<<endl;
   cin>>*nomUtilisateur;
 
@@ -15,17 +15,17 @@ void saisie(int *nombre_allumettes, char *niveauUtilisateur, string *nomUtilisat
     cout<<"Tu vas jouer contre l'ordinateur. Quel niveau souhaites-tu qu'il ait?"<<endl;
     cout<<"Tapes n ou N si tu souhaites mettre le niveau sur Naif"<<endl;
     cout<<"Tapes e ou E si tu souhaites mettre le niveau sur Expert"<<endl;
-    cin>>*niveauUtilisateur;
+    cin>>*niveauOrdinateur;
   // Condition qui contrôle la saisie
-  } while (*niveauUtilisateur != 'e' and *niveauUtilisateur != 'E' and *niveauUtilisateur != 'n' and *niveauUtilisateur != 'N');
+  } while (*niveauOrdinateur != 'e' and *niveauOrdinateur != 'E' and *niveauOrdinateur != 'n' and *niveauOrdinateur != 'N');
 
   // Début du contrôle de saisie
   do {
     // Demande à l'utilisateur quel est le nombre d'allumettes qu'il souhaite
     cout<<"Quel est le nombre d'allumettes que tu souhaites (entre 3 et 30 allumettes)?"<<endl;
-    cin>>*nombre_allumettes;
+    cin>>*nbAllumettes;
   // Condition qui contrôle la saisie
-  } while (*nombre_allumettes < 3 or *nombre_allumettes > 30);
+  } while (*nbAllumettes < 3 or *nbAllumettes > 30);
   // Début du contrôle de saisie
   do {
     // Demande à l'utilisateur quel est le premier joueur entre lui et l'ordinateur
@@ -37,16 +37,16 @@ void saisie(int *nombre_allumettes, char *niveauUtilisateur, string *nomUtilisat
   } while (*premierJoueur != "Ordinateur" and *premierJoueur != *nomUtilisateur);
 }
 
-void Affiche(int nombre_allumettes) {
+void Affiche(int nbAllumettes) {
   // Le nombre de groupe de cinq allumettes et le reste de la division euclidienne par cinq sont des entiers
   int nbGroupeCinqAllumettes, resteDivisionEuclidienne;
   // La ligne représentant les allumettes et la ligne composée de cinq allumettes sont tout deux des chaines de caractères
   string ligneAllumettes, ligneCinqAllumettes = "! ! ! ! !";
   // Notre but est d'avoir le nombre de groupe de cinq allumettes
   // Nous allons donc faire la division euclidienne du nombre total d'Allumettes par 5 (pour obtenir le nombre d'allumettes ne faisant pas parti d'un groupe de cinq)
-  resteDivisionEuclidienne = nombre_allumettes % 5;
+  resteDivisionEuclidienne = nbAllumettes % 5;
     // Nous faisons aussi la division du nombre d'allumettes appartenant à un groupe de 5 par 5 (pour obtenir le nombre de groupe de 5 allumettes)
-  nbGroupeCinqAllumettes = (nombre_allumettes - resteDivisionEuclidienne) / 5;
+  nbGroupeCinqAllumettes = (nbAllumettes - resteDivisionEuclidienne) / 5;
 
   // Afficher le nombre de groupe de cinq allumettes fois la ligne de cinq allumettes
   for (int i=0; i < nbGroupeCinqAllumettes; i++) {
@@ -92,7 +92,7 @@ void verificationSaisie(int ChoixAllumettesUtilisateur, int nbAllumettes, bool *
   }
 
   if (ChoixAllumettesUtilisateur == 0) {
-    cout<<"Tu as abandonné la partie."<<endl;
+    cout<<"Tu ne joues aucune allumettes ce qui signifie que tu abandonnes la partie. Voici le plateau de jeu : "<<endl;
     *abandon = true;
   }
 }
@@ -142,7 +142,7 @@ void initialisationTour(string premierJoueur, string *tour_actuel) {
 int main() {
   // Déclaration des variables
   // Le nombre d'allumettes est un entier
-  int nb_allumettes;
+  int nbAllumettes;
   // Le niveau est donné à l'aide uniquement d'un caractère
   char niv;
   // Le nom et le premier joueur sont des chaines de caractères
@@ -150,22 +150,22 @@ int main() {
   bool abandon = false;
 
   // Appel de la procédure Saisie (procédure à faire dans la sous-tâche 1)
-  saisie(&nb_allumettes, &niv, &nom, &prem);
+  saisie(&nbAllumettes, &niv, &nom, &prem);
   initialisationTour(prem, &tour);
-  Affiche(nb_allumettes);
+  Affiche(nbAllumettes);
 
   do {
-    jeuAlterne(&tour, niv, &nb_allumettes, nom, &abandon);
-    Affiche(nb_allumettes);
-  } while (nb_allumettes > 1);
+    jeuAlterne(&tour, niv, &nbAllumettes, nom, &abandon);
+    Affiche(nbAllumettes);
+  } while (nbAllumettes > 1 and abandon != true);
 
-  if (tour =="tour_ordi") {
-    cout<<"Tu as gagné."<<endl;
+  if (abandon == true) {
+    cout<<"Tu as abandonné."<<endl;
   } else {
     if (tour == "tour_joueur") {
       cout<<"Tu as perdu."<<endl;
     } else {
-      cout<<"Tu as abandonné."<<endl;
+      cout<<"Tu as gagné."<<endl;
     }
   }
   return 0;
