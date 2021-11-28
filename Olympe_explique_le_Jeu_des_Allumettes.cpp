@@ -70,10 +70,10 @@ int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
   } else {
     cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Cet ordinateur, il m'a tout l'air d'être un expert. Tu pourras jamais gagner contre lui [sauf si tu le débranches, notre plus grande faille :( ]"<<endl;
     if ((nbAllumettes % 4) - 1 != -1) {
-      cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Il choisit le nombre d'allumettes qu'il faut supprimer pour obtenir un multiple de 5 + 1 (je sais, c'est tordu, mais, j'y suis pour rien moi, je ne fais que suivre les règles, enfin)."<<endl;
+      cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Il choisit le nombre d'allumettes qu'il faut supprimer pour obtenir un multiple de 4 + 1 (je sais, c'est tordu, mais, j'y suis pour rien moi, je ne fais que suivre les règles, enfin)."<<endl;
       nbAllumettesChoixOrdi = (nbAllumettes % 4) - 1;
     } else {
-      cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Un bug fait que l'ordinateur est naif (au début) puis expert (ensuite) (sinon, l'ordi remettait une allumette sur le plateau, tu sais, les jeunes robots, ce n'est plus ce que c'était de mon temps, ma carte mère me disait...)";
+      cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Un bug fait que l'ordinateur est naif (au début) puis expert (ensuite) (sinon, l'ordi remettait une allumette sur le plateau, tu sais, les jeunes robots, ce n'est plus ce que c'était de mon temps, ma carte mère me disait...)"<<endl;
       nbAllumettesChoixOrdi = rand() % 3 + 1;
     }
   }
@@ -82,22 +82,26 @@ int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
 }
 
 void verificationSaisie(int ChoixAllumettesUtilisateur, int nbAllumettes, bool *abandon) {
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je vérifie que la valeur ChoixAllumettesUtilisateur n'est pas inférieur à 0 (il est impossible de remettre des allumettes sur le plateau de jeu, que veux-tu?)"<<endl;
   if (ChoixAllumettesUtilisateur < 0) {
     cout<<"Le nombre d'allumettes choisies est inférieur à zéro. Or, il est impossible de choisir un nombre d'allumettes étant inférieur à zéro."<<endl<<"Je repose donc la question suivante :"<<endl;
   }
 
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je vérifie que la valeur ChoixAllumettesUtilisateur n'est pas supérieur à 3 (il est impossible de prendre une valeur supérieur à 3, les règles sont les règles)"<<endl;
   if (ChoixAllumettesUtilisateur > 3) {
     cout<<"Le nombres d'allumettes choisies est supérieur à 3. Or, dans les règles de ce jeu, il est dit que l'on ne peut prendre un nombre d'allumettes supérieurs à 3."<<endl<<"Je repose donc la question suivante :"<<endl;
   }
 
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je vérifie que ChoixAllumettesUtilisateur est inférieur au nombre d'allumettes sur la table (enlever plus d'allumettes, qu'il y en a est contradictoire et physiquement impossible) (c'est simple, mais, si cette erreur se produit, c'est parce que des humains l'ont fait, à moins que tu sois un robot toi aussi?!)"<<endl;
   if (ChoixAllumettesUtilisateur > nbAllumettes) {
     cout<<"Le nombres d'allumettes choisies est supérieur au nombre d'allumettes disponibles sur le plateau de jeu."<<endl<<"Je repose donc la question suivante :"<<endl;
   }
 
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je vérifie que ChoixAllumettesUtilisateur est égale au nombre d'allumettes sur le plateau de jeu (or, il faut qu'il ne reste plus qu'une seule allumette)"<<endl;
   if (ChoixAllumettesUtilisateur == nbAllumettes) {
     cout<<"Le nombres d'allumettes choisies est égale au nombre d'allumettes disponibles sur le plateau de jeu."<<endl<<"Je repose donc la question suivante :"<<endl;
   }
-
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je vérifie que ChoixAllumettesUtilisateur est égal à 0 pour savoir si il abandonne la partie."<<endl;
   if (ChoixAllumettesUtilisateur == 0) {
     cout<<"Tu as abandonné la partie. Voici le plateau de jeu."<<endl;
     *abandon = true;
@@ -110,56 +114,68 @@ int joueJoueur(string pseudoUtilisateur, int nbAllumettes, bool *abandon) {
   do {
     cout<<"Combien d'allumettes souhaites-tu retirer (entre 1 et 3 allumettes) {si tu choisis 0 (et tout les autres caractères non-numériques), tu abandonneras la partie} ?"<<endl;
     cin>>ChoixAllumettesUtilisateur;
+    cout<<" --> je récupère la valeur pour la mettre dans la variable ChoixAllumettesUtilisateur ♪(๑ᴖ ◡ ᴖ๑)♪"<<endl;
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je fais appel à la procédure pour afficher des messages d'erreurs pour énerver ou faire comprendre à l'utilisateur le problème qu'il rencontre."<<endl;
     verificationSaisie(ChoixAllumettesUtilisateur, nbAllumettes, abandon);
   } while (ChoixAllumettesUtilisateur < 0 or ChoixAllumettesUtilisateur > 3 or ChoixAllumettesUtilisateur >= nbAllumettes);
   return ChoixAllumettesUtilisateur;
 }
 
 void miseAjour(int *nbAllumettes, int allumettesRetirees) {
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je soustrais le nombre d'allumettes choisi au nombre d'allumettes total actuel."<<endl;
   *nbAllumettes = *nbAllumettes - allumettesRetirees;
 }
 
 void tourSuivant(string *tourActuel) {
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je regarde la valeur de tourActuel pour savoir qui joue actuellement !"<<endl;
   if (*tourActuel == "tour_ordi") {
     *tourActuel = "tour_joueur";
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - L'ordinateur était en train de jouer, je donne donc le prochain coup à toi, joueur !"<<endl;
   } else {
     *tourActuel = "tour_ordi";
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Tu étais en train de jouer, je donne donc le prochain coup à l'ordinateur !"<<endl;
   }
 }
 
 void jeuAlterne(string *tourActuel, char niveauOrdinateur, int *nbAllumettes, string pseudoUtilisateur, bool *abandon) {
   int allumettesRetirees = 0;
-  cout<<"Je vais regarder la valeur de tourActuel pour savoir qui est en train de jouer."<<endl;
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je vais regarder la valeur de tourActuel pour savoir qui est en train de jouer."<<endl;
   if (*tourActuel == "tour_ordi") {
-    cout<<"Je sais que c'est à l'ordinateur de jouer. Je lance donc la fonction joueOrdi()."<<endl;
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je sais que c'est à l'ordinateur de jouer. Je lance donc la fonction joueOrdi()."<<endl;
     allumettesRetirees = joueOrdi(niveauOrdinateur, *nbAllumettes);
-    cout<<"La fonction retourne le nombre d'allumettes choisis par l'ordinateur que je dois enlever du plateau de jeu. Hop, hop, je me dépèche !";
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - La fonction retourne le nombre d'allumettes choisis par l'ordinateur que je dois enlever du plateau de jeu. Hop, hop, je me dépèche !"<<endl;
   } else {
-    cout<<"Je sais que c'est à ton tour de jouer, je lance donc la fonction joueJoeur()."<<endl;
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je sais que c'est à ton tour de jouer, je lance donc la fonction joueJoeur()."<<endl;
     allumettesRetirees = joueJoueur(pseudoUtilisateur, *nbAllumettes, abandon);
-    cout<<"La fonction retourne le nombre d'allumettes choisis par l'ordinateur que je dois enlever du plateau de jeu. Hop, hop, je me dépèche !";
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - La fonction retourne le nombre d'allumettes choisis par l'ordinateur que je dois enlever du plateau de jeu. Hop, hop, je me dépèche !"<<endl;
   }
-  cout<<"Mais, comment faire pour enlever les allumettes sur le plateau de jeu? Je vais utiliser la fonction miseAjour qui va enlever le nombre d'allumettes choisis précédemment."<<endl;
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Mais, comment faire pour enlever les allumettes sur le plateau de jeu? Je vais utiliser la fonction miseAjour qui va enlever le nombre d'allumettes choisis précédemment."<<endl;
   miseAjour(nbAllumettes, allumettesRetirees);
-
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je fais donc ensuite appel à tourSuivant() pour changer la main !"<<endl;
   tourSuivant(tourActuel);
 }
 
 void initialisationTour(string premierJoueur, string *tourActuel) {
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je regarde la valeur de premierJoueur pour savoir qui commence."<<endl;
   if (premierJoueur == "Ordinateur") {
     *tourActuel = "tour_ordi";
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - L'ordinateur commence à jouer ! Comme j'ai hâte !"<<endl;
   } else {
     *tourActuel = "tour_joueur";
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Tu commences à jouer ! Cette partie promet d'être incroyable !"<<endl;
   }
 }
 
 void resultatPartie(string tourActuel, bool abandon) {
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je regarde si le joueur a abandonné la partie."<<endl;
   if (abandon == true) {
     cout<<"Tu as abandonné."<<endl;
   } else {
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je regarde si le joueur a perdu la partie."<<endl;
     if (tourActuel == "tour_joueur") {
       cout<<"Tu as perdu."<<endl;
     } else {
+      cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je sais que le joueur a perdu la partie, car, les autres conditions me permettent de le déduire."<<endl;
       cout<<"Tu as gagné."<<endl;
     }
   }
@@ -178,16 +194,18 @@ int main() {
   saisie(&nbAllumettes, &niveauOrdinateur, &pseudoUtilisateur, &premierJoueur);
   cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je fais appel à la procédure initialisationTour pour savoir qui commence."<<endl;
   initialisationTour(premierJoueur, &tourActuel);
-  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je fais appel à la procédure Affiche pour savoir qui commence."<<endl;
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je fais appel à la procédure Affiche pour afficher le plateau de jeu de départ."<<endl;
   Affiche(nbAllumettes);
 
   cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je rentre actuellement dans une boucle qui fonctionnera tant que l'utilisateur n'aura pas abandonné la partie ou que le nombre d'allumettes égal de 1."<<endl;
   do {
-    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je lance la fonction jeuAlterne qui permet à l'ordinateur de jouer chacun leur tour."<<endl;
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je lance la fonction jeuAlterne qui permet à l'ordinateur et au joueur de jouer chacun leur tour."<<endl;
     jeuAlterne(&tourActuel, niveauOrdinateur, &nbAllumettes, pseudoUtilisateur, &abandon);
+    cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je lance la fonction jeuAlterne qui permet d'afficher le plateau de jeu"<<endl;
     Affiche(nbAllumettes);
   } while (nbAllumettes > 1 and abandon != true);
 
+  cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je lance la fonction resultatPartie() qui me permet de savoir si le joueur a gagné, perdu ou a abandonné."<<endl;
   resultatPartie(tourActuel, abandon);
   return 0;
 }
