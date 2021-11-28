@@ -68,9 +68,13 @@ int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
   if (niveauOrdinateur == 'n' or niveauOrdinateur == 'N') {
     nbAllumettesChoixOrdi = rand() % 3 + 1;
   } else {
-    nbAllumettesChoixOrdi = (nbAllumettes % 4) - 1;
-    cout<<"Le nombre d'allumettes choisis par l'ordinateur est : "<<nbAllumettesChoixOrdi<<endl;
+    if ((nbAllumettes % 4) - 1 != -1) {
+      nbAllumettesChoixOrdi = (nbAllumettes % 4) - 1;
+    } else {
+      nbAllumettesChoixOrdi = rand() % 3 + 1;
+    }
   }
+  cout<<"Le nombre d'allumettes choisis par l'ordinateur est : "<<nbAllumettesChoixOrdi<<endl;
   return nbAllumettesChoixOrdi;
 }
 
@@ -139,6 +143,18 @@ void initialisationTour(string premierJoueur, string *tourActuel) {
   }
 }
 
+void resultatPartie(string tourActuel, bool abandon) {
+  if (abandon == true) {
+    cout<<"Tu as abandonné."<<endl;
+  } else {
+    if (tourActuel == "tour_joueur") {
+      cout<<"Tu as perdu."<<endl;
+    } else {
+      cout<<"Tu as gagné."<<endl;
+    }
+  }
+}
+
 int main() {
   // Déclaration des variables
   // Le nombre d'allumettes est un entier
@@ -159,14 +175,6 @@ int main() {
     Affiche(nbAllumettes);
   } while (nbAllumettes > 1 and abandon != true);
 
-  if (abandon == true) {
-    cout<<"Tu as abandonné."<<endl;
-  } else {
-    if (tourActuel == "tour_joueur") {
-      cout<<"Tu as perdu."<<endl;
-    } else {
-      cout<<"Tu as gagné."<<endl;
-    }
-  }
+  resultatPartie(tourActuel, abandon);
   return 0;
 }
