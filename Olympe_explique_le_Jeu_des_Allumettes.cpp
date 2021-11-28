@@ -4,61 +4,45 @@
 #include "string.h"
 using namespace std;
 
-// Définition de la procédure saisie (procédure à faire dans la sous-tâche 1)
 void saisie(int *nbAllumettes, char *niveauOrdinateur, string *pseudoUtilisateur, string *premierJoueur) {
   cout<<"Quel est ton pseudo ?"<<endl;
   cin>>*pseudoUtilisateur;
 
-  // Début du contrôle de saisie
   do {
-    // Demande à l'utilisateur quel est le niveau qu'il veut pour l'ordinateur
     cout<<"Tu vas jouer contre l'ordinateur. Quel niveau souhaites-tu qu'il ait?"<<endl;
     cout<<"Tapes n ou N si tu souhaites mettre le niveau sur Naif"<<endl;
     cout<<"Tapes e ou E si tu souhaites mettre le niveau sur Expert"<<endl;
     cin>>*niveauOrdinateur;
-  // Condition qui contrôle la saisie
   } while (*niveauOrdinateur != 'e' and *niveauOrdinateur != 'E' and *niveauOrdinateur != 'n' and *niveauOrdinateur != 'N');
 
-  // Début du contrôle de saisie
   do {
-    // Demande à l'utilisateur quel est le nombre d'allumettes qu'il souhaite
     cout<<"Quel est le nombre d'allumettes que tu souhaites (entre 3 et 30 allumettes)?"<<endl;
     cin>>*nbAllumettes;
-  // Condition qui contrôle la saisie
   } while (*nbAllumettes < 3 or *nbAllumettes > 30);
-  // Début du contrôle de saisie
+
   do {
-    // Demande à l'utilisateur quel est le premier joueur entre lui et l'ordinateur
     cout<<"Choississez le premier joueur :"<<endl;
     cout<<"Si tu souhaites laisser l'ordinateur jouer en premier, tape Ordinateur"<<endl;
     cout<<"Si tu veux être le premier joueur, écris ton nom : "<<*pseudoUtilisateur<<endl;
     cin>>*premierJoueur;
-    // Condition qui contrôle la saisie
   } while (*premierJoueur != "Ordinateur" and *premierJoueur != *pseudoUtilisateur);
 }
 
 void Affiche(int nbAllumettes) {
-  // Le nombre de groupe de cinq allumettes et le reste de la division euclidienne par cinq sont des entiers
   int nbGroupeCinqAllumettes, resteDivisionEuclidienne;
-  // La ligne représentant les allumettes et la ligne composée de cinq allumettes sont tout deux des chaines de caractères
   string ligneAllumettes, ligneCinqAllumettes = "! ! ! ! !";
-  // Notre but est d'avoir le nombre de groupe de cinq allumettes
-  // Nous allons donc faire la division euclidienne du nombre total d'Allumettes par 5 (pour obtenir le nombre d'allumettes ne faisant pas parti d'un groupe de cinq)
+
   resteDivisionEuclidienne = nbAllumettes % 5;
-    // Nous faisons aussi la division du nombre d'allumettes appartenant à un groupe de 5 par 5 (pour obtenir le nombre de groupe de 5 allumettes)
   nbGroupeCinqAllumettes = (nbAllumettes - resteDivisionEuclidienne) / 5;
 
-  // Afficher le nombre de groupe de cinq allumettes fois la ligne de cinq allumettes
   for (int i=0; i < nbGroupeCinqAllumettes; i++) {
     cout<<ligneCinqAllumettes<<endl;
   }
 
-  // Cancaténer les points d'exclamation en fonction du reste d'allumettes qui ne se trouve pas dans un groupe de 5
   for (int i=0; i < resteDivisionEuclidienne; i++) {
       ligneAllumettes = ligneAllumettes + "! ";
   }
 
-  // Afficher la dernière ligne
   cout<<ligneAllumettes<<endl;
 }
 
@@ -156,16 +140,11 @@ void resultatPartie(string tourActuel, bool abandon) {
 }
 
 int main() {
-  // Déclaration des variables
-  // Le nombre d'allumettes est un entier
   int nbAllumettes;
-  // Le niveau est donné à l'aide uniquement d'un caractère
   char niveauOrdinateur;
-  // Le nom et le premier joueur sont des chaines de caractères
   string pseudoUtilisateur, premierJoueur, tourActuel;
   bool abandon = false;
 
-  // Appel de la procédure Saisie (procédure à faire dans la sous-tâche 1)
   saisie(&nbAllumettes, &niveauOrdinateur, &pseudoUtilisateur, &premierJoueur);
   initialisationTour(premierJoueur, &tourActuel);
   Affiche(nbAllumettes);
