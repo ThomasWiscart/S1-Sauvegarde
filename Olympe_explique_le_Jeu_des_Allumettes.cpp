@@ -92,7 +92,7 @@ void verificationSaisie(int ChoixAllumettesUtilisateur, int nbAllumettes, bool *
   }
 
   if (ChoixAllumettesUtilisateur == 0) {
-    cout<<"Tu ne joues aucune allumettes ce qui signifie que tu abandonnes la partie. Voici le plateau de jeu : "<<endl;
+    cout<<"Tu as abandonné la partie. Voici le plateau de jeu."<<endl;
     *abandon = true;
   }
 }
@@ -101,7 +101,7 @@ int joueJoueur(string nomUtilisateur, int nbAllumettes, bool *abandon) {
   int ChoixAllumettesUtilisateur;
   cout<<"C'est à toi de jouer, "<<nomUtilisateur<<" !"<<endl;
   do {
-    cout<<"Combien d'allumettes souhaites-tu retirer (entre 1 et 3 allumettes) {si tu choisis 0, tu abandonneras la partie} ?"<<endl;
+    cout<<"Combien d'allumettes souhaites-tu retirer (entre 1 et 3 allumettes) {si tu choisis 0 (et tout les autres caractères non-numériques), tu abandonneras la partie} ?"<<endl;
     cin>>ChoixAllumettesUtilisateur;
     verificationSaisie(ChoixAllumettesUtilisateur, nbAllumettes, abandon);
   } while (ChoixAllumettesUtilisateur < 0 or ChoixAllumettesUtilisateur > 3 or ChoixAllumettesUtilisateur >= nbAllumettes);
