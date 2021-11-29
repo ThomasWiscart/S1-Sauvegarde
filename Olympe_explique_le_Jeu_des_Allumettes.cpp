@@ -71,7 +71,7 @@ int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
     }
   } else {
     cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Cet ordinateur, il m'a tout l'air d'être un expert. Tu pourras jamais gagner contre lui [sauf si tu le débranches, notre plus grande faille :( ]"<<endl;
-    if ((nbAllumettes % 4) - 1 != -1) {
+    if ((nbAllumettes % 4) - 1 > 0) {
       cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Il choisit le nombre d'allumettes qu'il faut supprimer pour obtenir un multiple de 4 + 1 (je sais, c'est tordu, mais, j'y suis pour rien moi, je ne fais que suivre les règles, enfin)."<<endl;
       nbAllumettesChoixOrdi = (nbAllumettes % 4) - 1;
     } else {

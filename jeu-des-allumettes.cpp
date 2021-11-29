@@ -163,6 +163,7 @@ void resultatPartie(string tourActuel, bool abandon) {
   }
 }
 
+
 int main() {
   // Déclaration des variables
   // Le nombre d'allumettes est un entier
