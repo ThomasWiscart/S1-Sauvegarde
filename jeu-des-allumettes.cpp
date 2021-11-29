@@ -76,7 +76,7 @@ int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
       }
     }
   } else {
-    if ((nbAllumettes % 4) - 1 != -1) {
+    if ((nbAllumettes % 4) - 1 > 0) {
       nbAllumettesChoixOrdi = (nbAllumettes % 4) - 1;
     } else {
       nbAllumettesChoixOrdi = rand() % 3 + 1;
