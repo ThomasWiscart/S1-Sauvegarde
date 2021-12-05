@@ -4,36 +4,27 @@
 #include "string.h"
 using namespace std;
 
-// Définition de la procédure saisie (procédure à faire dans la sous-tâche 1)
 void saisie(int *nbAllumettes, char *niveauOrdinateur, string *pseudoUtilisateur, string *premierJoueur) {
   cout<<"Quel est ton pseudo ?"<<endl;
   cin>>*pseudoUtilisateur;
 
-  // Début du contrôle de saisie
   do {
-    // Demande à l'utilisateur quel est le niveau qu'il veut pour l'ordinateur
     cout<<"Tu vas jouer contre l'ordinateur. Quel niveau souhaites-tu qu'il ait?"<<endl;
     cout<<"Tapes n ou N si tu souhaites mettre le niveau sur Naif"<<endl;
     cout<<"Tapes e ou E si tu souhaites mettre le niveau sur Expert"<<endl;
     cin>>*niveauOrdinateur;
-  // Condition qui contrôle la saisie
   } while (*niveauOrdinateur != 'e' and *niveauOrdinateur != 'E' and *niveauOrdinateur != 'n' and *niveauOrdinateur != 'N');
 
-  // Début du contrôle de saisie
   do {
-    // Demande à l'utilisateur quel est le nombre d'allumettes qu'il souhaite
     cout<<"Quel est le nombre d'allumettes que tu souhaites (entre 3 et 30 allumettes)?"<<endl;
     cin>>*nbAllumettes;
-  // Condition qui contrôle la saisie
   } while (*nbAllumettes < 3 or *nbAllumettes > 30);
-  // Début du contrôle de saisie
+
   do {
-    // Demande à l'utilisateur quel est le premier joueur entre lui et l'ordinateur
     cout<<"Choississez le premier joueur :"<<endl;
     cout<<"Si tu souhaites laisser l'ordinateur jouer en premier, tape Ordinateur"<<endl;
     cout<<"Si tu veux être le premier joueur, écris ton nom : "<<*pseudoUtilisateur<<endl;
     cin>>*premierJoueur;
-    // Condition qui contrôle la saisie
   } while (*premierJoueur != "Ordinateur" and *premierJoueur != *pseudoUtilisateur);
 }
 
@@ -86,6 +77,7 @@ int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
   return nbAllumettesChoixOrdi;
 }
 
+// Cette procédure vérifie que la valeur rentrée respecte bien les règles que nous avons fixé au début du jeu
 void verificationSaisie(int ChoixAllumettesUtilisateur, int nbAllumettes, bool *abandon) {
   if (ChoixAllumettesUtilisateur < 0) {
     cout<<"Le nombre d'allumettes choisies est inférieur à zéro. Or, il est impossible de choisir un nombre d'allumettes étant inférieur à zéro."<<endl<<"Je repose donc la question suivante :"<<endl;
@@ -123,7 +115,7 @@ int joueJoueur(string pseudoUtilisateur, int nbAllumettes, bool *abandon) {
 void miseAjour(int *nbAllumettes, int allumettesRetirees) {
   *nbAllumettes = *nbAllumettes - allumettesRetirees;
 }
-
+// Cette procédure permet de changer de joueur en alternant
 void tourSuivant(string *tourActuel) {
   if (*tourActuel == "tour_ordi") {
     *tourActuel = "tour_joueur";
@@ -132,6 +124,7 @@ void tourSuivant(string *tourActuel) {
   }
 }
 
+// Cette procédure permet à l'ordinateur de faire jouer soit l'ordinateur soit le joueur
 void jeuAlterne(string *tourActuel, char niveauOrdinateur, int *nbAllumettes, string pseudoUtilisateur, bool *abandon) {
   int allumettesRetirees = 0;
   if (*tourActuel == "tour_ordi") {
@@ -143,6 +136,7 @@ void jeuAlterne(string *tourActuel, char niveauOrdinateur, int *nbAllumettes, st
   tourSuivant(tourActuel);
 }
 
+
 void initialisationTour(string premierJoueur, string *tourActuel) {
   if (premierJoueur == "Ordinateur") {
     *tourActuel = "tour_ordi";
@@ -151,6 +145,7 @@ void initialisationTour(string premierJoueur, string *tourActuel) {
   }
 }
 
+// Cette procédure a un but strictement informative pour l'utilisateur concernant la fin du jeu des allumettes (le résultat de la partie)
 void resultatPartie(string tourActuel, bool abandon) {
   if (abandon == true) {
     cout<<"Tu as abandonné."<<endl;
