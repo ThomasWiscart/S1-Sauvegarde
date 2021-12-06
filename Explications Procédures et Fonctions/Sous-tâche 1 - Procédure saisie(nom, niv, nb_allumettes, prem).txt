@@ -1,0 +1,9 @@
+Procédure saisie(nom,niv,nb_allumettes,prem) :
+1.  Saisie du nom du joueur
+2.  Saisie contrôlée du niveau de l'ordinateur (niveau 'n ou N' pour "naif" ou 'e ou E' pour "expert")
+3.  Saisie contrôlée du nombre d'allumettes (0≤ nb_allumettes ≤30)
+4.  Saisie contrôlée du premier joueur (« Nom » pour utilisateur ou « Ordinateur »)
+
+Description de la procédure saisie() :
+
+La procédure a pour but de collecter des données sur l’utilisateur, comme son nom d’utilisateur et de définir les règles, comme le nombre d’allumettes, le niveau de l’ordinateur et le choix du premier joueur. La procédure ne contient aucune variable locale. Le nom d’utilisateur, le nombre d’allumettes, le niveau de l’ordinateur et le choix du premier joueur sont stockés dans des variables passés par adresse dans la procédure.

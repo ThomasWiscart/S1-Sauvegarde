@@ -1,0 +1,14 @@
+Sous-Tâche 3 : Comment jouer chacun son tour ?
+* (procédure jeualterne(tour))
+1. Si tour_ordi alors
+        Faire jouer l'ordinateur
+    Sinon
+          Faire jouer le joueur
+2. Retirer les nb allumettes jouées du tas
+* (procedure miseAjour(nb_allumettes, nb)
+3. Changer de joueur
+
+Description de la procédure jeualterne() :
+
+La procédure a pour but d’établir l’alternatance entre le tour de jouer de l’ordinateur et celui du  joueur de telle sorte que tous deux puissent jouer chacun leur tour. Le programme est écrit de telle sorte qu’en fonction de celui qui a joué le tour précédent,  le tour suivant sera joué par l’autre joueur. 
+Ainsi en alternant le tour des joueurs, parallèlement des mises à jour du nombre d’allumettes seront effectuées en fonction du nombre d’allumettes retirées pendant chaque tour.

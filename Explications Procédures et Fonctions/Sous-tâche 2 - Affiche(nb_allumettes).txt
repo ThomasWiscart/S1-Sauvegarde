@@ -1,0 +1,15 @@
+Sous-Tâche 2 : Comment afficher les allumettes restantes par groupes de 5 ? 
+* (procédure Affiche(nb_allumettes))
+
+
+1. Définir un motif à l'aide de caractères pour représenter une allumette.
+        ex: !   !   !   !   !
+2. Afficher sur trois ligne la chaîne correspondante
+        ex: !   !   !   !   !
+             !   !   !   !   !
+             !   !   !   !   !
+
+Description de la procédure affiche() :
+
+La procédure a pour but d’afficher le nombre d’allumettes. 
+La procédure affiche les allumettes par groupe de 5. Elle va faire une division euclidienne par 5 du nombre d’allumettes pour récupérer le reste. Ce reste va nous permettre d’afficher le nombre d’allumettes restantes.

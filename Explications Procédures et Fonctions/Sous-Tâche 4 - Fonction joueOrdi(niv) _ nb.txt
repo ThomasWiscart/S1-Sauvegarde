@@ -1,0 +1,18 @@
+﻿Sous-Tâche 4 : Comment faire jouer l'ordinateur ?
+* (fonction joueOrdi(niv) : nb le nombre d'allumettes à retirer)
+1. Afficher le message de l'arbitre "ORDI joue"
+2. Si le mode naïf est sélectionné alors 
+        Générer de manière contrôlée un nombre nb aléatoire d'allumettes à retirer 
+    Sinon
+        Jouer en mode expert : jouer le complément à 4 pour se ramener à une forme nb=4k+1 gagnante.
+    Fin si
+
+
+Description de la procédure joueOrdi() :
+
+
+Quand vient le tour de jeu de l’ordi, le message “joueOrdi” s’affiche.
+En fonction du choix du mode de jeu ( naïf ou expert ), si mode naïf, alors un nombre aléatoire d’allumettes sera retiré par contre si le mode sélectionné est expert, à ce moment là le programme s’arrangera de telle sorte à retirer des nombre sous la forme nb=4k+1 c’est à dire de laissai
+
+
+Ne pas paraphraser. Il suffit de dire : Cette fonction permet de faire jouer l’ordinateur. Elle opère différentes actions en fonction du

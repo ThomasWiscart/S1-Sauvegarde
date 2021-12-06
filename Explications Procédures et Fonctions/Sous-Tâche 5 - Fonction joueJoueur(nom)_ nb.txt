@@ -1,0 +1,14 @@
+Sous-Tâche 5 : Comment faire jouer le joueur ?
+* (fonction joueJoueur(nom): nb le nombre d'allumettes à retirer)
+1. Afficher le message de l'arbitre "Martin joue"
+2. Répéter
+        Saisir le nombre d'allumettes
+        S'il est invalide (nb > 3 ou nb > nb_allumettes)
+                Message de l'arbitre "erreur"
+        S'il est nul (nb= 0)
+                Confirmer l'abandon
+  Jusqu'à ce que le coup soit correct ou que le joueur ait abandonné
+
+Description de la procédure joueJoueur() :
+
+Après la collecte d’information ( nom du joueur, mode expert ou non ), l’arbitre affichera donc en fonction du nom qui a été rentré au départ ( exemple nom= Martin ); le message sera alors: “Martin joue”.  Ensuite sera affiché le nombre d’allumettes restantes ( après le tour de l’ordinateur ); le joueur devra donc retirer le nombre d’allumettes souhaité: ce nombre doit être inférieur ou égale à  3 mais différent de 0 car si le si le nombre d’allumettes à retirer saisi par le joueur est 0, cela équivaut à un abandon et s'il est supérieur à 4, il sera affiché un  message d'erreur.
