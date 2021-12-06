@@ -1,0 +1,81 @@
+ ./main
+Quel est ton pseudo ?
+Testeur
+Tu vas jouer contre l'ordinateur. Quel niveau souhaites-tu qu'il ait?
+Tapes n ou N si tu souhaites mettre le niveau sur Naif
+Tapes e ou E si tu souhaites mettre le niveau sur Expert
+r
+Tu vas jouer contre l'ordinateur. Quel niveau souhaites-tu qu'il ait?
+Tapes n ou N si tu souhaites mettre le niveau sur Naif
+Tapes e ou E si tu souhaites mettre le niveau sur Expert
+z
+Tu vas jouer contre l'ordinateur. Quel niveau souhaites-tu qu'il ait?
+Tapes n ou N si tu souhaites mettre le niveau sur Naif
+Tapes e ou E si tu souhaites mettre le niveau sur Expert
+n
+Quel est le nombre d'allumettes que tu souhaites (entre 3 et 30 allumettes)?
+33
+Quel est le nombre d'allumettes que tu souhaites (entre 3 et 30 allumettes)?
+30
+Choisissez le premier joueur :
+Si tu souhaites laisser l'ordinateur jouer en premier, tape Ordinateur
+Si tu veux être le premier joueur, écris ton nom : Testeur
+testeur
+Choisissez le premier joueur :
+Si tu souhaites laisser l'ordinateur jouer en premier, tape Ordinateur
+Si tu veux être le premier joueur, écris ton nom : Testeur
+Testeur
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+
+C'est à toi de jouer, Testeur !
+Combien d'allumettes souhaites-tu retirer (entre 1 et 3 allumettes) {si tu choisis 0 (et tout les autres caractères non-numériques), tu abandonneras la partie} ?
+4
+Le nombres d'allumettes choisies est supérieur à 3. Or, dans les règles de ce jeu, il est dit que l'on ne peut prendre un nombre d'allumettes supérieurs à 3.
+Je repose donc la question suivante :
+Combien d'allumettes souhaites-tu retirer (entre 1 et 3 allumettes) {si tu choisis 0 (et tout les autres caractères non-numériques), tu abandonneras la partie} ?
+2
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! !
+L'ordinateur est actuellement en train de jouer...
+Le nombre d'allumettes choisis par l'ordinateur est : 2
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+!
+C'est à toi de jouer, Testeur !
+Combien d'allumettes souhaites-tu retirer (entre 1 et 3 allumettes) {si tu choisis 0 (et tout les autres caractères non-numériques), tu abandonneras la partie} ?
+1
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+
+L'ordinateur est actuellement en train de jouer...
+Le nombre d'allumettes choisis par l'ordinateur est : 2
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! !
+C'est à toi de jouer, Testeur !
+Combien d'allumettes souhaites-tu retirer (entre 1 et 3 allumettes) {si tu choisis 0 (et tout les autres caractères non-numériques), tu abandonneras la partie} ?
+0
+Tu as abandonné la partie. Voici le plateau de jeu.
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! ! ! !
+! ! !
+Tu as abandonné.
