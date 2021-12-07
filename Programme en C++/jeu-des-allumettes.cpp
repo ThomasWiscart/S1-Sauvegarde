@@ -1,3 +1,27 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby,
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby,
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
 #include "cstdlib"
 #include "iostream"
 #include "stdio.h"
@@ -67,11 +91,29 @@ int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
       }
     }
   } else {
-    if ((nbAllumettes % 4) - 1 > 0) {
-      nbAllumettesChoixOrdi = (nbAllumettes % 4) - 1;
+
+        switch(nbAllumettes%4){
+            case 0:
+                nbAllumettesChoixOrdi = 3;
+                break;
+            case 2:
+                nbAllumettesChoixOrdi = 1;
+                break;
+
+            case 3:
+                nbAllumettesChoixOrdi = 2;
+                break;
+
+            default:
+                nbAllumettesChoixOrdi = rand() % 3 + 1;
+                break;
+
+      }
+    /*if ((nbAllumettes -1) % 4  > 0) {
+      nbAllumettesChoixOrdi = (nbAllumettes -1 )% 4 ;
     } else {
       nbAllumettesChoixOrdi = rand() % 3 + 1;
-    }
+    }*/
   }
   cout<<"Le nombre d'allumettes choisis par l'ordinateur est : "<<nbAllumettesChoixOrdi<<endl;
   return nbAllumettesChoixOrdi;
