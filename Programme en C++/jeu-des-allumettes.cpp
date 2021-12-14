@@ -13,19 +13,19 @@ void saisie(int *nbAllumettes, char *niveauOrdinateur, string *pseudoUtilisateur
     cout<<"Tapes n ou N si tu souhaites mettre le niveau sur Naif"<<endl;
     cout<<"Tapes e ou E si tu souhaites mettre le niveau sur Expert"<<endl;
     cin>>*niveauOrdinateur;
-  } while (*niveauOrdinateur != 'e' and *niveauOrdinateur != 'E' and *niveauOrdinateur != 'n' and *niveauOrdinateur != 'N');
+  } while (*niveauOrdinateur != 'e' && *niveauOrdinateur != 'E' && *niveauOrdinateur != 'n' && *niveauOrdinateur != 'N');
 
   do {
     cout<<"Quel est le nombre d'allumettes que tu souhaites (entre 3 et 30 allumettes)?"<<endl;
     cin>>*nbAllumettes;
-  } while (*nbAllumettes < 3 or *nbAllumettes > 30);
+  } while (*nbAllumettes < 3 || *nbAllumettes > 30);
 
   do {
     cout<<"Choississez le premier joueur :"<<endl;
     cout<<"Si tu souhaites laisser l'ordinateur jouer en premier, tape Ordinateur"<<endl;
     cout<<"Si tu veux être le premier joueur, écris ton nom : "<<*pseudoUtilisateur<<endl;
     cin>>*premierJoueur;
-  } while (*premierJoueur != "Ordinateur" and *premierJoueur != *pseudoUtilisateur);
+  } while (*premierJoueur != "Ordinateur" && *premierJoueur != *pseudoUtilisateur);
 }
 
 void Affiche(int nbAllumettes) {
@@ -56,7 +56,7 @@ void Affiche(int nbAllumettes) {
 int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
   int nbAllumettesChoixOrdi;
   cout<<"L'ordinateur est actuellement en train de jouer..."<<endl;
-  if (niveauOrdinateur == 'n' or niveauOrdinateur == 'N') {
+  if (niveauOrdinateur == 'n' || niveauOrdinateur == 'N') {
     if (nbAllumettes > 3) {
       nbAllumettesChoixOrdi = rand() % 3 + 1;
     } else {
@@ -126,7 +126,7 @@ int joueJoueur(string pseudoUtilisateur, int nbAllumettes, bool *abandon) {
     cout<<"Combien d'allumettes souhaites-tu retirer (entre 1 et 3 allumettes) {si tu choisis 0 (et tout les autres caractères non-numériques), tu abandonneras la partie} ?"<<endl;
     cin>>ChoixAllumettesUtilisateur;
     verificationSaisie(ChoixAllumettesUtilisateur, nbAllumettes, abandon);
-  } while (ChoixAllumettesUtilisateur < 0 or ChoixAllumettesUtilisateur > 3 or ChoixAllumettesUtilisateur >= nbAllumettes);
+  } while (ChoixAllumettesUtilisateur < 0 || ChoixAllumettesUtilisateur > 3 || ChoixAllumettesUtilisateur >= nbAllumettes);
   return ChoixAllumettesUtilisateur;
 }
 
@@ -195,7 +195,7 @@ int main() {
   do {
     jeuAlterne(&tourActuel, niveauOrdinateur, &nbAllumettes, pseudoUtilisateur, &abandon);
     Affiche(nbAllumettes);
-  } while (nbAllumettes > 1 and abandon != true);
+  } while (nbAllumettes > 1 && abandon != true);
 
   resultatPartie(tourActuel, abandon);
   return 0;
