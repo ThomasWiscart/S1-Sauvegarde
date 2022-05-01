@@ -1,0 +1,81 @@
+/*Importation des polices*/
+@import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;500;600&family=Roboto:wght@100&display=swap');
+
+body{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+
+}
+
+.fond1{
+    background-image: url("../assets/photo_chocolat_premiere_page.jpeg");
+    color: white;/*pour les polices d'écritures*/
+    background-size: cover;
+    background-position: center;
+}
+
+.fond2{
+    background-image: url("../assets/photo_chocolat_deuxieme_page.jpeg");
+    color: black; /*pour les polices d'écritures*/
+    background-size: cover;
+    background-position: center;
+}
+
+.conteneur{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /*Pour occuper le reste de la page*/
+    justify-content: center;
+    align-items: center;
+    font-family: "Arial";
+    text-align: center;
+}
+
+.d-block.w-100 {
+	height: 100vh;
+}
+
+.mail{
+    display: flex;
+    flex-flow: row;
+}
+
+.boite-logo-reseaux-sociaux{
+    display: flex;
+    flex-flow: row;
+    gap: 20px;
+}
+
+.image-reseaux-sociaux{
+    height: 5vh;
+}
+
+.texte-important{
+  font-family: 'Readex Pro', sans-serif !important;
+  
+}
+
+.texte-normal{
+  font-family: 'Roboto', sans-serif !important;
+  
+}
+
+h1{
+    font-family: 'Damion', cursive;
+    font-size: 15vw;
+}
+
+.texte-accueil{
+    font-size: 3vw;
+}
+
+.boite-texte-ambition{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 70vw;
+}
