@@ -1,4 +1,4 @@
-# Sauvegarde-Semestre-1
+# Sauvegarde-Groupe-Disruption
 Ce répertoire synthétise les projets Web et les Situations d'Apprentissage et d'Évaluation.
 
 ## Membre de la SAE S1.01
