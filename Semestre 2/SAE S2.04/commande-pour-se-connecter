@@ -1,0 +1,2 @@
+mysql -h 10.1.139.236 -u d8 -p6ABSehdzCDe
+use based8;

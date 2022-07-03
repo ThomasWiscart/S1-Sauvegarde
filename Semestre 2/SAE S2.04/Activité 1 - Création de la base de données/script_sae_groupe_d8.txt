@@ -183,7 +183,7 @@ INSERT INTO EST_DESSERVI (numLigne, numArret, heurePremPassage, numArretSuiv) VA
 
 /*Ligne MD en direction de Gare de Vénissieux*/
 INSERT INTO EST_DESSERVI (numLigne, numArret, heurePremPassage, numArretSuiv) VALUES (7, 24, "05:01:00", 25);
-INSERT INTO EST_DESSERVI (numLigne, numArret, heurePremPassage, numArretSuiv) VALUES (7, 25, "05:02:00", 26);
+INSERT INTO EST_DESSERVI (numLigne, numArret, heurePremPassage, numArretSuiv) VALUES (7, 25, "05:02:00", 6);
 INSERT INTO EST_DESSERVI (numLigne, numArret, heurePremPassage, numArretSuiv) VALUES (7, 26, "05:04:00", 27);
 INSERT INTO EST_DESSERVI (numLigne, numArret, heurePremPassage, numArretSuiv) VALUES (7, 27, "05:07:00", 39);
 INSERT INTO EST_DESSERVI (numLigne, numArret, heurePremPassage, numArretSuiv) VALUES (7, 39, "05:09:00", 28);

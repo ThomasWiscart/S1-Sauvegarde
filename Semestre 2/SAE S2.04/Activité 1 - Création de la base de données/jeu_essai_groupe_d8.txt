@@ -1,0 +1,7 @@
+mysql> INSERT EST_DESSERVI(numLigne, numArret, heurePremPassage, numArretSuiv) VALUES(10, 5, "6:00:00", 1);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`based8`.`EST_DESSERVI`, CONSTRAINT `EST_DESSERVI_ibfk_1` FOREIGN KEY (`numLigne`) REFERENCES `LIGNE` (`numLigne`))
+mysql> INSERT LIGNE(nomLigne, freqLigne, vitMoyLigne, numArretDep, numArretArr) VALUES(10, "00:00:05", 15, 1, 15);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT EST_DESSERVI(numLigne, numArret, heurePremPassage, numArretSuiv) VALUES(10, 5, "6:00:00", 1);
+Query OK, 1 row affected (0.01 sec)

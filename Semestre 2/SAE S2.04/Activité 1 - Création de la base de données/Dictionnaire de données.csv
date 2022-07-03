@@ -1,0 +1,17 @@
+﻿Nom,Description,Nature,Justification de la nature,Type,Règle de calcul
+numArret,Numéro permettant d’identifier les différents arrêts,Persistant Calculé,"Puisque que c’est une clé primaire, elle s’incrémente automatiquement",Entier (INTEGER),Auto-incrémentation
+nomArret,Nom de l’arrêt,Persistant,On a besoin de stocker le nom de l’arrêt,Chaîne de caractère (Tableau de CHARACTER),
+adrArret,Adresse de l’arrêt,Persistant,On a besoin de stocker cette information,Chaîne de caractère (Tableau de CHARACTER),
+distArret,Distance entre les arrêts en km,Persistant,On a besoin de stocker cette information,Réel (FLOAT),
+numLigne,Numéro identifiant les différentes lignes,Persistant Calculé,"Puisque que c’est une clé primaire, elle s’incrémente automatiquement",Entier (INTEGER),Auto-incrémentation
+nomLigne,Ligne du train,Persistant,On a besoin de stocker cette infomation,Chaîne de caractère (Tableau de CHARACTER),
+vitMoyLigne,Vitesse moyenne de la ligne en km/h,Persistant,On a besoin de stocker cette infomation,Réel (FLOAT),
+freqLigne,Fréquence de la ligne,Persistant,On a besoin de stocker cette infomation,Temps (TIME),
+numArretDep,Numéro identifiant de la ligne de départ,Persistant,On a besoin de stocker cette infomation,Entier (INTEGER),
+numArretArr,Numéro identifiant de la ligne d’arrivée,Persistant,On a besoin de stocker cette infomation,Entier (INTEGER),
+numArretSuiv,Numéro de l’arrêt qui succède à l’arrêt précédent,Persistant,On a besoin de stocker cette infomation,Entier (INTEGER),
+heureDebutServ,Heure de début de service du train,Persistant,On a besoin de stocker cette infomation,Temps (TIME),
+nbArret,Nombre d’arrêts,Calculé,On peut obtenir cette donnée en faisant la somme de tous les arrêts,Entier (INTEGER),nbArret = nbArret0+...+nbArretN
+distTrajet,Distance total du trajet en km,Calculé,On peut obtenir cette donnée en additionnant la distance entre les arrêts du trajet,Réel (FLOAT),distTrajet = distArret0+...+distArretN
+tempsTrajet,Temps que le trajet va prendre en minute,Calculé,On peut obtenir cette donnée en divisant la distance du trajet par la vitesse du train et en ajoutant le nombre d’arrêt multiplié par 30 secondes,Réel (FLOAT),tempsTrajet = distTrajet/vitMoyLigne+nbArret*0.5
+heurePassage,Heure où arrive le prochain métro,Calculé,,Temps (TIME),heurePassage = heureDebServ + { ARRONDI_SUP[ (heure_actuel - heureDebServ) / freqLigne ] * freqLigne }
