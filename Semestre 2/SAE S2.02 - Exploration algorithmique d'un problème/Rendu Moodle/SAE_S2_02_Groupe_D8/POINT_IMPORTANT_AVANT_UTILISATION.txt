@@ -1,5 +1,0 @@
-Points importants avant l'utilsation du programme :
-
-1) Assurez-vous d'avoir le dossier contenant les tables et le fichier source dans le même répertoire
-2) Si vous voulez avoir une idée de quels arrêts sont disponibles, vous pouvez regarder le plan du métro de Lyon fourni
-3) Il est recommandé de saisir le plus exactement possible les arrêts cependant les saisies approximatives sont autorisées voir l'algorithme compChaineApprox(string, string)
