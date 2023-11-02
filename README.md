@@ -1,6 +1,6 @@
-# Sauvegarde-SAE
+# Sauvegarde-SAE1
 
-Ce répertoire synthétise les projets Web et les Situations d'Apprentissage et d'Évaluation.
+Cette sauvegarde permet de découvrir les travaux réalisés dans le cadre universitaire durant la Situation d'Apprentissage et d'Évaluation du semestre n°1 du Bachelor Universitaire de Technologie Informatique à l'Institut Universitaire de Technologie d'Amiens.
 
 ## Membre de la SAE S1.01
 
