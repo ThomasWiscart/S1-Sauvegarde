@@ -1,40 +1,71 @@
+<!--
+Ce fichier HTML représente la page d'accueil du site "Le paradis de Willy Wonka". Il contient les éléments suivants :
+
+- La déclaration du type de document et la balise <html> avec l'attribut lang="fr" pour spécifier la langue française.
+- La section <head> contenant les métadonnées de la page, telles que le titre, l'auteur, la description et les balises de viewport.
+- Les liens vers les fichiers CSS et JavaScript nécessaires pour le style et le comportement de la page.
+- Les balises <nav> et <ul> pour la navigation du site, avec des liens vers différentes pages.
+- La section <section> avec un texte d'accueil et un titre.
+
+Ce fichier est situé dans le chemin suivant : /Users/wiscartthomas/Documents/GitHub/S1-Sauvegarde/Semestre 1/Projet Web - le paradis de Willy Wonka/Version Hyper-Native/index.html
+-->
 <!DOCTYPE html>
 <html lang="fr">
-
-
   <head>
     <title>Le paradis de Willy Wonka</title>
     <meta charset="utf-8" />
     <meta name="author" content="Colins, Victor, Thomas, Annaïs" />
-    <meta name="description" content="Le meilleur site de chocolat"/>
+    <meta name="description" content="Le meilleur site de chocolat" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--On indique au navigateur que c'est un site responsive-->
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--On indique au navigateur que c'est un site responsive-->
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <script type="text/javascript" src="./js/bootstrap.bundle.js"></script>
-    <link rel="icon" href="./assets/photo-chocolat.svg" sizes="any" type="image/svg+xml">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" type="image/png" sizes="64x64" href="https://cdn.pixabay.com/photo/2020/07/16/00/09/dessert-5409238__340.png">
+    <link
+      rel="icon"
+      href="./assets/photo-chocolat.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="https://cdn.pixabay.com/photo/2020/07/16/00/09/dessert-5409238__340.png"
+    />
   </head>
-
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
       <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html"
+          ><img
+            src="./assets/photo-chocolat.svg"
+            width="60"
+            height="60"
+            alt="Le paradis de Willy Wonka"
+        /></a>
 
-        <a class="navbar-brand" href="./index.html"><img src="./assets/photo-chocolat.svg" width="60" height="60" alt="Le paradis de Willy Wonka"></a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-
           <ul class="navbar-nav">
-
             <li class="nav-item">
-              <a class="nav-link" href="./notre_ambition.html">Notre ambition</a>
+              <a class="nav-link" href="./notre_ambition.html"
+                >Notre ambition</a
+              >
             </li>
 
             <li class="nav-item">
@@ -42,7 +73,9 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="./nous_contacter.html">Nous contacter</a>
+              <a class="nav-link" href="./nous_contacter.html"
+                >Nous contacter</a
+              >
             </li>
 
             <li class="nav-item">
@@ -52,20 +85,16 @@
             <li class="nav-item">
               <a class="nav-link" href="./a_propos.html">A propos</a>
             </li>
-
           </ul>
-
         </div>
-
       </div>
-
     </nav>
 
     <section class="conteneur fond1">
-      <p class="texte-accueil texte-important">Nouvelles saisons, nouvelles saveurs</p>
+      <p class="texte-accueil texte-important">
+        Nouvelles saisons, nouvelles saveurs
+      </p>
       <h1>Le paradis de Willy Wonka</h1>
     </section>
-
   </body>
-
 </html>

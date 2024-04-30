@@ -1,3 +1,17 @@
+/**
+ * Procédure de tri par sélection selon l'ordre lexicographique.
+ *
+ * Cette procédure effectue un tri par sélection sur une liste d'étudiants en utilisant l'ordre lexicographique de leur nom de famille.
+ * Le tri par sélection consiste à trouver à chaque itération le plus petit élément restant dans la liste et à l'échanger avec l'élément à la position actuelle.
+ * Cela permet de placer progressivement les éléments dans l'ordre croissant.
+ *
+ * @param liste La liste d'éléments de type étudiant à trier.
+ * @param deb L'indice de début de la liste.
+ * @param fin L'indice de fin de la liste.
+ */
+void triSelect(listEtud liste, int deb, int fin){
+    // ...
+}
 /*
 Auteurs: Annaïs Tchewo Kewe, Victor Guenez-Charles, Thomas Wiscart et Colins Neil Nimalaraj
 */

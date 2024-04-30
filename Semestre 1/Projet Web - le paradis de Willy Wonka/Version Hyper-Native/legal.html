@@ -1,39 +1,80 @@
+<!--
+Ce fichier HTML représente la page "Légal" du site web "Le paradis de Willy Wonka". Il contient des informations légales et des mentions importantes concernant l'entreprise, ses activités, les conditions générales de vente, l'utilisation des cookies et des données personnelles.
+
+Structure du fichier:
+- Doctype: spécifie la version HTML utilisée et la langue du document
+- Balise <html>: contient tout le contenu de la page
+- Balise <head>: contient les métadonnées et les liens vers les fichiers CSS et JavaScript
+- Balise <body>: contient le contenu visible de la page, y compris la navigation, les sections d'informations légales et les mentions
+
+Sections d'informations légales:
+1. Identification: contient les informations sur l'entreprise, y compris sa dénomination sociale, son adresse, son numéro de téléphone, sa forme juridique, son capital social, les noms des directeurs et du responsable de la rédaction, ainsi que les informations sur l'hébergeur du site web.
+2. Activité: contient les informations sur l'inscription au registre du commerce et des sociétés, ainsi que sur l'identification fiscale de l'entreprise. Il inclut également les conditions générales de vente, qui détaillent les prix des produits, les frais de livraison, les modes de paiement et les conditions d'annulation de commande.
+3. Mentions sur l'utilisation de cookies: explique ce qu'est un cookie et précise que le site web n'utilise pas de cookies.
+4. Mentions sur l'utilisation de données personnelles: indique les données collectées par l'entreprise, le délégué à la protection des données, les données utilisées lors de l'authentification lors de l'achat, ainsi que les droits des utilisateurs concernant leurs données personnelles.
+
+Le fichier utilise également des classes CSS et des scripts JavaScript pour rendre la page interactive et stylisée.
+-->
 <!DOCTYPE html>
 <html lang="fr">
-
-
   <head>
     <title>Légal</title>
     <meta charset="utf-8" />
     <meta name="author" content="Colins, Victor, Thomas, Annaïs" />
-    <meta name="description" content="Le meilleur site de chocolat"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--On indique au navigateur que c'est un site responsive-->
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <meta name="description" content="Le meilleur site de chocolat" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--On indique au navigateur que c'est un site responsive-->
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <script type="text/javascript" src="./js/bootstrap.bundle.js"></script>
-    <link rel="icon" href="./assets/photo-chocolat.svg" sizes="any" type="image/svg+xml">
+    <link
+      rel="icon"
+      href="./assets/photo-chocolat.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
   </head>
 
   <body class="fond2">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="./index.html"><img src="./assets/photo-chocolat.svg" width="60" height="60" alt="Le paradis de Willy Wonka"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="./index.html"
+          ><img
+            src="./assets/photo-chocolat.svg"
+            width="60"
+            height="60"
+            alt="Le paradis de Willy Wonka"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="./notre_ambition.html">Notre ambition</a>
+              <a class="nav-link" href="./notre_ambition.html"
+                >Notre ambition</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./nos_chocolats.html">Nos chocolats</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./nous_contacter.html">Nous contacter</a>
+              <a class="nav-link" href="./nous_contacter.html"
+                >Nous contacter</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./legal.html">Légal</a>
+              <a class="nav-link active" aria-current="page" href="./legal.html"
+                >Légal</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./a_propos.html">A propos</a>
@@ -46,29 +87,42 @@
     <div class="accordion" id="accordionPanelsStayOpenExample">
       <div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseOne"
+            aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseOne"
+          >
             <h5 class="texte-important">
-              <strong>
-                Identification
-              </strong>
+              <strong> Identification </strong>
             </h5>
           </button>
         </h2>
-        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+        <div
+          id="panelsStayOpen-collapseOne"
+          class="accordion-collapse collapse show"
+          aria-labelledby="panelsStayOpen-headingOne"
+        >
           <div class="accordion-body">
             <p class="texte-normal">
               Dénomination sociale : "Le paradis de Willy Wonka". <br />
-              Adresse du siège social de notre entreprise : Avenue des Facultés, Le Bailly, 80025 Amiens. <br />
+              Adresse du siège social de notre entreprise : Avenue des Facultés,
+              Le Bailly, 80025 Amiens. <br />
               Numéro de téléphone : 06 82 71 23 68. <br />
-              La forme juridique de notre entreprise est une société en nom collectif. <br />
+              La forme juridique de notre entreprise est une société en nom
+              collectif. <br />
               Capital social : 1 000 000 000 d'euros. <br />
               Directrice : Annaïs Tchewo Kewe. <br />
               Co-directeur : Victor Guenez-Charles. <br />
               Responsable de la rédaction : Thomas Wiscart. <br />
               Hébergeur du site Web : Colins Neil Nimalaraj. <br />
-              Dénomination de l'Hébergeur : étudiant en informatique (formation Bachelor Universitaire de Technologie). <br />
+              Dénomination de l'Hébergeur : étudiant en informatique (formation
+              Bachelor Universitaire de Technologie). <br />
               Numéro de téléphone de l'Hébergeur : 09 58 75 34 23. <br />
-              Adresse de l'hébergeur : Avenue des Facultés, Le Bailly, 80025 Amiens. <br />
+              Adresse de l'hébergeur : Avenue des Facultés, Le Bailly, 80025
+              Amiens. <br />
             </p>
           </div>
         </div>
@@ -76,34 +130,63 @@
 
       <div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseTwo"
+            aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseTwo"
+          >
             <h5 class="texte-important">
-              <strong>
-                Activité
-              </strong>
+              <strong> Activité </strong>
             </h5>
           </button>
         </h2>
-        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+        <div
+          id="panelsStayOpen-collapseTwo"
+          class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-headingTwo"
+        >
           <div class="accordion-body">
             <p class="texte-normal">
-              Le numéro d'inscription au registre du commerce et des sociétés est : RCS AMIENS B 234 060 654. <br />
-              Le numéro individuel d'identification fiscale est : FR 14 234 060 654.
+              Le numéro d'inscription au registre du commerce et des sociétés
+              est : RCS AMIENS B 234 060 654. <br />
+              Le numéro individuel d'identification fiscale est : FR 14 234 060
+              654.
             </p>
             <div class="card">
               <div class="card-header">
                 <h5 class="texte-important">
-                  <strong>
-                    Conditions générales de vente (CGV)
-                  </strong>
+                  <strong> Conditions générales de vente (CGV) </strong>
                 </h5>
               </div>
               <ul class="list-group list-group-flush texte-normal">
-                <li class="list-group-item texte-normal"> <p> Tout nos produits sont au même prix : 20 euros TTC. </p> </li>
-                <li class="list-group-item texte-normal"> <p> Les frais de livraison sont de 1 euro par produit et la livraison est effectué 2 jours après chaque commande. </p> </li>
-                <li class="list-group-item texte-normal"> <p> Le paiement se fait uniquement par carte bancaire. </p> </li>
-                <li class="list-group-item texte-normal"> <p> Votre droit de rétractation n'est plus valable lorsque vous avez reçu le produit. Vous pouvez annuler la commande directement sur notre site Web. </p> </li>
-                <li class="list-group-item texte-normal"> <p> Si vous souhaitez nous contacter par téléphone, aucun tarif ne s'applique. </p> </li>
+                <li class="list-group-item texte-normal">
+                  <p>Tout nos produits sont au même prix : 20 euros TTC.</p>
+                </li>
+                <li class="list-group-item texte-normal">
+                  <p>
+                    Les frais de livraison sont de 1 euro par produit et la
+                    livraison est effectué 2 jours après chaque commande.
+                  </p>
+                </li>
+                <li class="list-group-item texte-normal">
+                  <p>Le paiement se fait uniquement par carte bancaire.</p>
+                </li>
+                <li class="list-group-item texte-normal">
+                  <p>
+                    Votre droit de rétractation n'est plus valable lorsque vous
+                    avez reçu le produit. Vous pouvez annuler la commande
+                    directement sur notre site Web.
+                  </p>
+                </li>
+                <li class="list-group-item texte-normal">
+                  <p>
+                    Si vous souhaitez nous contacter par téléphone, aucun tarif
+                    ne s'applique.
+                  </p>
+                </li>
               </ul>
             </div>
           </div>
@@ -111,19 +194,32 @@
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseThree"
+            aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseThree"
+          >
             <h5 class="texte-important">
-              <strong>
-                Mentions sur l'utilisation de cookies
-              </strong>
+              <strong> Mentions sur l'utilisation de cookies </strong>
             </h5>
           </button>
         </h2>
-        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+        <div
+          id="panelsStayOpen-collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-headingThree"
+        >
           <div class="accordion-body">
             <p class="texte-normal">
-              Un cookie est un outil informatique qui permet de tracer et d'analyser le comportement d'un usager sur internet (sa navigation sur internet, sur un site, dans une application, etc.).
-              Les cookies soumis au consentement des internautes sont ceux ayant pour but de personnaliser les publicités et ceux liés aux réseaux sociaux. Sur notre site Web, nous n'utilisons pas les cookies.
+              Un cookie est un outil informatique qui permet de tracer et
+              d'analyser le comportement d'un usager sur internet (sa navigation
+              sur internet, sur un site, dans une application, etc.). Les
+              cookies soumis au consentement des internautes sont ceux ayant
+              pour but de personnaliser les publicités et ceux liés aux réseaux
+              sociaux. Sur notre site Web, nous n'utilisons pas les cookies.
             </p>
           </div>
         </div>
@@ -131,7 +227,14 @@
 
       <div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseFour"
+            aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseFour"
+          >
             <h5 class="texte-important">
               <strong>
                 Mentions sur l'utilisation de données personnelles
@@ -139,13 +242,20 @@
             </h5>
           </button>
         </h2>
-        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+        <div
+          id="panelsStayOpen-collapseFour"
+          class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-headingFour"
+        >
           <div class="accordion-body">
             <p class="texte-normal">
-              Données collectés : nom, prénom, adresse, code bancaire, e-mail et mot de passe. <br />
+              Données collectés : nom, prénom, adresse, code bancaire, e-mail et
+              mot de passe. <br />
               Délégué à la protection des données : Thomas Wiscart. <br />
-              Données utilisés lors de l'authentification lors de l'achat : Nom, prénom, adresse, code bancaire, e-mail et mot de passe. <br />
-              Vous avez le droit de s'opposer, d'accéder et rectifier vos données. Vous pouvez porter plainte auprès de la CNIL.<br />
+              Données utilisés lors de l'authentification lors de l'achat : Nom,
+              prénom, adresse, code bancaire, e-mail et mot de passe. <br />
+              Vous avez le droit de s'opposer, d'accéder et rectifier vos
+              données. Vous pouvez porter plainte auprès de la CNIL.<br />
             </p>
           </div>
         </div>

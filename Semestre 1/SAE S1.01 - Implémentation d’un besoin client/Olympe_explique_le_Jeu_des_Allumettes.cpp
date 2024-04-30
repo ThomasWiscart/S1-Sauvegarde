@@ -83,6 +83,13 @@ int joueOrdi(char niveauOrdinateur, int nbAllumettes) {
   return nbAllumettesChoixOrdi;
 }
 
+/**
+ * Vérifie la saisie de l'utilisateur pour le nombre d'allumettes choisies.
+ * 
+ * @param ChoixAllumettesUtilisateur Le nombre d'allumettes choisies par l'utilisateur.
+ * @param nbAllumettes Le nombre d'allumettes disponibles sur le plateau de jeu.
+ * @param abandon Un pointeur vers un booléen indiquant si l'utilisateur a abandonné la partie.
+ */
 void verificationSaisie(int ChoixAllumettesUtilisateur, int nbAllumettes, bool *abandon) {
   cout<<"♪(๑ᴖ ◡ ᴖ๑)♪ - Je vérifie que la valeur ChoixAllumettesUtilisateur n'est pas inférieur à 0 (il est impossible de remettre des allumettes sur le plateau de jeu, que veux-tu?)"<<endl;
   if (ChoixAllumettesUtilisateur < 0) {
